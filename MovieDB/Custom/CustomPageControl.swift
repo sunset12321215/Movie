@@ -23,7 +23,7 @@ final class CustomImagePageControl: UIPageControl {
     }
     
     //  MARK: - Update View
-    private func updateDots() {
+    func updateDots() {
         var i = 0
         for view in self.subviews {
             if let imageView = imageForSubview(view) {
