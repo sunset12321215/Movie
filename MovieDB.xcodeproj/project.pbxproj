@@ -16,6 +16,7 @@
 		29DE92E422E565BD008955A9 /* WalkThoughCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DE92E222E565BD008955A9 /* WalkThoughCell.swift */; };
 		29DE92E522E565BD008955A9 /* WalkThoughCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29DE92E322E565BD008955A9 /* WalkThoughCell.xib */; };
 		29DE92E922E576A9008955A9 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DE92E822E576A9008955A9 /* UIView+.swift */; };
+		29DE92EB22E5B296008955A9 /* WalkThough.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DE92EA22E5B296008955A9 /* WalkThough.swift */; };
 		759E6EDF5C659ABB6FF4A6C8 /* Pods_MovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0A0C91FAD9AF31DA7F3047 /* Pods_MovieDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		29DE92E322E565BD008955A9 /* WalkThoughCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalkThoughCell.xib; sourceTree = "<group>"; };
 		29DE92E622E56AC5008955A9 /* MovieDB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MovieDB-Bridging-Header.h"; sourceTree = "<group>"; };
 		29DE92E822E576A9008955A9 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		29DE92EA22E5B296008955A9 /* WalkThough.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThough.swift; sourceTree = "<group>"; };
 		80A141E04C29EB26CA0023A5 /* Pods-MovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.release.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.release.xcconfig"; sourceTree = "<group>"; };
 		DD0A0C91FAD9AF31DA7F3047 /* Pods_MovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -110,6 +112,7 @@
 		29DE92DF22E56509008955A9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				29DE92EA22E5B296008955A9 /* WalkThough.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				29DE92C922E54853008955A9 /* WalkThroughViewController.swift in Sources */,
 				29DE92E422E565BD008955A9 /* WalkThoughCell.swift in Sources */,
 				29DE92C722E54853008955A9 /* AppDelegate.swift in Sources */,
+				29DE92EB22E5B296008955A9 /* WalkThough.swift in Sources */,
 				29DE92DA22E551BD008955A9 /* CustomPageControl.swift in Sources */,
 				29DE92E922E576A9008955A9 /* UIView+.swift in Sources */,
 			);

@@ -11,12 +11,14 @@ import UIKit
 final class WalkThoughCell: UICollectionViewCell, Reusable {
 
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setContentForCell(data: String) {
-        imageView.image = UIImage(named: data)
+    func setContentForCell(data: WalkThough) {
+        imageView.image = UIImage(named: data.imageString)
+        titleLabel.text = data.title
     }
 }
