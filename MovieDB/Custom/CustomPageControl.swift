@@ -10,9 +10,11 @@ import UIKit
 
 final class CustomImagePageControl: UIPageControl {
     
-    let activeImage = UIImage(named: "WhiteDot")!
-    let inactiveImage = UIImage(named: "GrayDot")!
+    //  MARK: - Outlet
+    private let activeImage = UIImage(named: "WhiteDot")!
+    private let inactiveImage = UIImage(named: "GrayDot")!
     
+    //  MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         pageIndicatorTintColor = UIColor.clear
@@ -20,7 +22,8 @@ final class CustomImagePageControl: UIPageControl {
         clipsToBounds = false
     }
     
-    func updateDots() {
+    //  MARK: - Update View
+    private func updateDots() {
         var i = 0
         for view in self.subviews {
             if let imageView = imageForSubview(view) {

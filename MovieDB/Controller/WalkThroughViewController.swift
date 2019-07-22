@@ -10,17 +10,20 @@ import UIKit
 
 final class WalkThroughViewController: UIViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var pageControl: CustomImagePageControl!
+    //  MARK: - Outlet
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var pageControl: CustomImagePageControl!
     
+    //  MARK: - Variable & Constants
     private let arrayImage = ["WalkthroughA", "WalkthroughB", "WalkthroughC"]
-    struct Constant {
+    private struct Constant {
         static let identifier = "WalkThoughCell"
         static let widthScreen = UIScreen.main.bounds.width
         static let heightScreen = UIScreen.main.bounds.height
         static let minimumLineSpacing: CGFloat = 0
     }
     
+    //  MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.do {
@@ -36,6 +39,7 @@ final class WalkThroughViewController: UIViewController {
         setupPageControl()
     }
     
+    //  MARK: - Setup View
     private func setupPageControl() {
         pageControl.updateDots()
     }
