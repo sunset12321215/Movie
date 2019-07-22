@@ -13,9 +13,14 @@ final class WalkThroughViewController: UIViewController {
     //  MARK: - Outlet
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageControl: CustomImagePageControl!
+    @IBOutlet private weak var getStartedButton: UIButton!
     
     //  MARK: - Variable & Constants
-    private let arrayImage = ["WalkthroughA", "WalkthroughB", "WalkthroughC"]
+    private let arrayWalkThough = [
+        WalkThough(imageString: "WalkthroughA", title: "Get the first\nMovie & TV\ninfomation"),
+        WalkThough(imageString: "WalkthroughB", title: "Know the movie\nis not worth\nWatching"),
+        WalkThough(imageString: "WalkthroughC", title: "Real-time\nupdates movie\nTrailer"),
+        ]
     private struct Constant {
         static let identifier = "WalkThoughCell"
         static let widthScreen = UIScreen.main.bounds.width
@@ -32,6 +37,7 @@ final class WalkThroughViewController: UIViewController {
             $0.register(UINib(nibName: "WalkThoughCell", bundle: nil),
                         forCellWithReuseIdentifier: "WalkThoughCell")
         }
+        getStartedButton.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,19 +48,34 @@ final class WalkThroughViewController: UIViewController {
     //  MARK: - Setup View
     private func setupPageControl() {
         pageControl.updateDots()
+        pageControl.numberOfPages = arrayWalkThough.count
+    }
+    
+    //  MARK: - Action
+    @IBAction func NextAction(_ sender: UIButton) {
+        pageControl.currentPage = pageControl.currentPage + 1
+        pageControl.updateDots()
+        collectionView.scrollToItem(at: IndexPath(item: pageControl.currentPage, section: 0), at: .right, animated: true)
+        if pageControl.currentPage == 2 {
+            getStartedButton.isHidden = false
+        }
+    }
+    
+    @IBAction func getStartedAction(_ sender: Any) {
+        //  MARK: - ToDo
     }
 }
 
 extension WalkThroughViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return arrayImage.count
+        return arrayWalkThough.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: WalkThoughCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.setContentForCell(data: arrayImage[indexPath.row])
+        cell.setContentForCell(data: arrayWalkThough[indexPath.row])
         return cell
     }
 }
@@ -71,5 +92,18 @@ extension WalkThroughViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return Constant.minimumLineSpacing
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                   withVelocity velocity: CGPoint,
+                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let position = targetContentOffset.pointee.x / Constant.widthScreen
+        pageControl.currentPage = Int(position)
+        pageControl.updateDots()
+        if position == 2 {
+            getStartedButton.isHidden = false
+        } else {
+            getStartedButton.isHidden = true
+        }
     }
 }

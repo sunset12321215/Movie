@@ -59,20 +59,41 @@
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="NextAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nGr-yp-YyS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNV-P9-zeE">
+                                <rect key="frame" x="101" y="726" width="212" height="59.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="-11" maxX="0.0" maxY="-20"/>
+                                <state key="normal" image="Next_icon"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="getStartedAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Io-Ig-909"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4S8-pi-FM0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Or-u8-Usg"/>
+                            <constraint firstItem="LNV-P9-zeE" firstAttribute="width" secondItem="tHD-wW-iaL" secondAttribute="width" id="73u-a6-teK"/>
                             <constraint firstItem="tHD-wW-iaL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="658/406" id="HJL-MQ-V3Q"/>
                             <constraint firstItem="r8P-ed-AMY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IEf-0S-fu6"/>
                             <constraint firstItem="4S8-pi-FM0" firstAttribute="width" secondItem="r8P-ed-AMY" secondAttribute="width" multiplier="90/375" id="Ndc-Lj-92s"/>
                             <constraint firstItem="4S8-pi-FM0" firstAttribute="height" secondItem="r8P-ed-AMY" secondAttribute="height" multiplier="16/812" id="VpK-wt-F32"/>
                             <constraint firstItem="tHD-wW-iaL" firstAttribute="height" secondItem="4S8-pi-FM0" secondAttribute="height" multiplier="54/16" id="aRp-5w-k9i"/>
+                            <constraint firstItem="tHD-wW-iaL" firstAttribute="centerY" secondItem="LNV-P9-zeE" secondAttribute="centerY" id="e5U-3L-JbH"/>
                             <constraint firstItem="tHD-wW-iaL" firstAttribute="width" secondItem="r8P-ed-AMY" secondAttribute="width" multiplier="192/375" id="ef9-i6-CSI"/>
                             <constraint firstItem="tHD-wW-iaL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hZ6-KQ-ZbD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="r8P-ed-AMY" secondAttribute="trailing" id="jtZ-ve-dkV"/>
                             <constraint firstItem="4S8-pi-FM0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="568/406" id="lXl-Ci-P9g"/>
+                            <constraint firstItem="tHD-wW-iaL" firstAttribute="centerX" secondItem="LNV-P9-zeE" secondAttribute="centerX" id="pDJ-gg-Hrj"/>
+                            <constraint firstItem="LNV-P9-zeE" firstAttribute="height" secondItem="tHD-wW-iaL" secondAttribute="height" id="vk6-kU-H76"/>
                             <constraint firstAttribute="bottom" secondItem="r8P-ed-AMY" secondAttribute="bottom" id="xWR-I1-nyB"/>
                             <constraint firstItem="r8P-ed-AMY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xhX-pz-YBJ"/>
                         </constraints>
@@ -80,6 +101,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="r8P-ed-AMY" id="zsn-gP-hUz"/>
+                        <outlet property="getStartedButton" destination="LNV-P9-zeE" id="HPh-km-ma5"/>
                         <outlet property="pageControl" destination="4S8-pi-FM0" id="QNr-aA-YAG"/>
                     </connections>
                 </viewController>
@@ -88,4 +110,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Next_icon" width="195" height="91"/>
+    </resources>
 </document>
