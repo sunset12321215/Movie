@@ -11,7 +11,7 @@ import UIKit
 final class WalkThoughCell: UICollectionViewCell, Reusable {
 
     @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

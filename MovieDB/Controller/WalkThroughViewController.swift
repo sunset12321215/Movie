@@ -31,13 +31,8 @@ final class WalkThroughViewController: UIViewController {
     //  MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.do {
-            $0.delegate = self
-            $0.dataSource = self
-            $0.register(UINib(nibName: "WalkThoughCell", bundle: nil),
-                        forCellWithReuseIdentifier: "WalkThoughCell")
-        }
-        getStartedButton.isHidden = true
+        setupCollectionView()
+        setupGetStartedButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,6 +44,19 @@ final class WalkThroughViewController: UIViewController {
     private func setupPageControl() {
         pageControl.updateDots()
         pageControl.numberOfPages = arrayWalkThough.count
+    }
+    
+    private func setupCollectionView() {
+        collectionView.do {
+            $0.delegate = self
+            $0.dataSource = self
+            $0.register(UINib(nibName: "WalkThoughCell", bundle: nil),
+                        forCellWithReuseIdentifier: "WalkThoughCell")
+        }
+    }
+    
+    private func setupGetStartedButton() {
+        getStartedButton.isHidden = true
     }
     
     //  MARK: - Action
