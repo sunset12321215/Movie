@@ -1,10 +1,6 @@
 //
 //  URLs.swift
 //  Movie
-//
-//  Created by pham.xuan.tien on 12/28/18.
-//  Copyright © 2018 Framgia. All rights reserved.
-//
 
 struct URLs {
     private static let APIBaseUrl = "https://api.themoviedb.org/3"

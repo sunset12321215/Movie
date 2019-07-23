@@ -1,10 +1,6 @@
 //
 //  HTTPStatusCode.swift
 //  Movie
-//
-//  Created by pham.xuan.tien on 1/4/19.
-//  Copyright © 2019 Framgia. All rights reserved.
-//
 
 enum HTTPStatusCode: Int, Error {
     /// The response class representation of status codes, these get grouped by their first digit.
