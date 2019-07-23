@@ -9,5 +9,8 @@ target 'MovieDB' do
 
 pod 'Then'
 pod 'Reusable'
+pod 'Alamofire'
+pod 'ObjectMapper'
+pod 'RealmSwift'
 
 end
