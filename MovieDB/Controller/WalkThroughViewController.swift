@@ -63,7 +63,9 @@ final class WalkThroughViewController: UIViewController {
     @IBAction func NextAction(_ sender: UIButton) {
         pageControl.currentPage = pageControl.currentPage + 1
         pageControl.updateDots()
-        collectionView.scrollToItem(at: IndexPath(item: pageControl.currentPage, section: 0), at: .right, animated: true)
+        collectionView.scrollToItem(at: IndexPath(item: pageControl.currentPage, section: 0),
+                                    at: .right,
+                                    animated: true)
         if pageControl.currentPage == 2 {
             getStartedButton.isHidden = false
         }
