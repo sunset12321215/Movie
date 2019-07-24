@@ -10,9 +10,11 @@ import Foundation
 
 protocol MovieRepository {
     func getMovies(type: MovieType, page: Int, completion: @escaping (BaseResult<MoviesResponse>) -> Void)
+    func getGenreList(completion: @escaping (BaseResult<GenreResponse>) -> Void)
 }
 
 final class MovieRepositoryImpl: MovieRepository {
+    
     private var api: APIService!
     
     required init(api: APIService) {
@@ -23,6 +25,20 @@ final class MovieRepositoryImpl: MovieRepository {
         guard let api = api else { return }
         let input = MovieRequest(type: type, page: page)
         api.request(input: input) { (object: MoviesResponse?, error) in
+            guard let object = object else {
+                guard let error = error else {
+                    return completion(.failure(error: nil))
+                }
+                return completion(.failure(error: error))
+            }
+            completion(.success(object))
+        }
+    }
+    
+    func getGenreList(completion: @escaping (BaseResult<GenreResponse>) -> Void) {
+        guard let api = api else { return }
+        let input = GenreRequest()
+        api.request(input: input) { (object: GenreResponse?, error) in
             guard let object = object else {
                 guard let error = error else {
                     return completion(.failure(error: nil))
