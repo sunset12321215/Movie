@@ -12,5 +12,7 @@ pod 'Reusable'
 pod 'Alamofire'
 pod 'ObjectMapper'
 pod 'RealmSwift'
+pod 'SDWebImage'
+pod 'SkeletonView'
 
 end

@@ -9,13 +9,22 @@
 import UIKit
 
 final class TopRatedCell: UICollectionViewCell, NibReusable {
-
+    
     @IBOutlet private weak var topImageView: UIImageView!
     @IBOutlet private weak var yearReleaseLabel: UILabel!
     @IBOutlet private weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        topImageView.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+    }
+    
+    func setContentForCell(data: Movie) {
+        let url = URL(string: String(URLs.APIImagesOriginalPath) + data.posterPath)
+        topImageView.showAnimatedGradientSkeleton()
+        self.topImageView.sd_setImage(with: url) { (_, _, _, _) in
+            self.topImageView.hideSkeleton()
+        }
+        yearReleaseLabel.text = data.year
+        nameLabel.text = data.title
     }
 }

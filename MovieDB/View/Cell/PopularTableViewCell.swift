@@ -10,12 +10,18 @@ import UIKit
 
 final class PopularTableViewCell: UITableViewCell, NibReusable {
 
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     private struct Constant {
         static let cellHeight: CGFloat = 225 * Screen.ratioHeight
         static let cellWidth: CGFloat = 140 * Screen.ratioWidth
-        static let minimumLineSpacing = 20 * Screen.ratioWidth
+        static let minimumLineSpacing = 10 * Screen.ratioWidth
+        static let numberOfMovieInSection = 10
+    }
+    var topRatedArray = [Movie]() {
+        didSet {
+            collectionView.reloadData()
+        }
     }
     
     override func awakeFromNib() {
@@ -35,12 +41,15 @@ final class PopularTableViewCell: UITableViewCell, NibReusable {
 extension PopularTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return Constant.numberOfMovieInSection
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: TopRatedCell = collectionView.dequeueReusableCell(for: indexPath)
+        if topRatedArray.count != 0 {
+            cell.setContentForCell(data: topRatedArray[indexPath.row])
+        }
         return cell
     }
 }

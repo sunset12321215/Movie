@@ -16,4 +16,13 @@ final class NowCell: UICollectionViewCell, NibReusable {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    func setContentForCell(data: Movie) {
+        movieImageView.showAnimatedGradientSkeleton()
+        let fullImageURL = URL(string: String(URLs.APIImagesOriginalPath) + data.posterPath)
+        movieImageView.sd_setImage(with: fullImageURL) { (_, _, _, _) in
+            self.movieImageView.hideSkeleton()
+        }
+        movieNameLabel.text = data.title
+    }
 }
