@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2962352A22F281FB00672D22 /* TopRatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2962352822F281FB00672D22 /* TopRatedCell.swift */; };
+		2962352B22F281FB00672D22 /* TopRatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2962352922F281FB00672D22 /* TopRatedCell.xib */; };
+		2962352E22F2824900672D22 /* PopularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2962352C22F2824900672D22 /* PopularTableViewCell.swift */; };
+		2962352F22F2824900672D22 /* PopularTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2962352D22F2824900672D22 /* PopularTableViewCell.xib */; };
 		298C5F4A22E6A60900B2CDAB /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C5F4322E6A60900B2CDAB /* APIService.swift */; };
 		298C5F4B22E6A60900B2CDAB /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C5F4522E6A60900B2CDAB /* BaseError.swift */; };
 		298C5F4C22E6A60900B2CDAB /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C5F4622E6A60900B2CDAB /* ErrorResponse.swift */; };
@@ -33,6 +37,10 @@
 		29D7F31022E814B300EACEE7 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7F30E22E814B300EACEE7 /* CategoryCell.swift */; };
 		29D7F31122E814B300EACEE7 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D7F30F22E814B300EACEE7 /* CategoryCell.xib */; };
 		29D7F31322E84E1300EACEE7 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7F31222E84E1300EACEE7 /* Screen.swift */; };
+		29D7F31622E85B7F00EACEE7 /* NowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7F31422E85B7D00EACEE7 /* NowCell.swift */; };
+		29D7F31722E85B7F00EACEE7 /* NowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D7F31522E85B7F00EACEE7 /* NowCell.xib */; };
+		29D7F31A22E8601E00EACEE7 /* TopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D7F31822E8601E00EACEE7 /* TopCell.swift */; };
+		29D7F31B22E8601E00EACEE7 /* TopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D7F31922E8601E00EACEE7 /* TopCell.xib */; };
 		29DE92C722E54853008955A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DE92C622E54853008955A9 /* AppDelegate.swift */; };
 		29DE92C922E54853008955A9 /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DE92C822E54853008955A9 /* WalkThroughViewController.swift */; };
 		29DE92CC22E54853008955A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29DE92CA22E54853008955A9 /* Main.storyboard */; };
@@ -48,6 +56,10 @@
 
 /* Begin PBXFileReference section */
 		110707B4D02746C9C3374633 /* Pods-MovieDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieDB.debug.xcconfig"; path = "Target Support Files/Pods-MovieDB/Pods-MovieDB.debug.xcconfig"; sourceTree = "<group>"; };
+		2962352822F281FB00672D22 /* TopRatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedCell.swift; sourceTree = "<group>"; };
+		2962352922F281FB00672D22 /* TopRatedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopRatedCell.xib; sourceTree = "<group>"; };
+		2962352C22F2824900672D22 /* PopularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTableViewCell.swift; sourceTree = "<group>"; };
+		2962352D22F2824900672D22 /* PopularTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularTableViewCell.xib; sourceTree = "<group>"; };
 		298C5F4322E6A60900B2CDAB /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		298C5F4522E6A60900B2CDAB /* BaseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
 		298C5F4622E6A60900B2CDAB /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
@@ -74,6 +86,10 @@
 		29D7F30E22E814B300EACEE7 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		29D7F30F22E814B300EACEE7 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		29D7F31222E84E1300EACEE7 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		29D7F31422E85B7D00EACEE7 /* NowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowCell.swift; sourceTree = "<group>"; };
+		29D7F31522E85B7F00EACEE7 /* NowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowCell.xib; sourceTree = "<group>"; };
+		29D7F31822E8601E00EACEE7 /* TopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCell.swift; sourceTree = "<group>"; };
+		29D7F31922E8601E00EACEE7 /* TopCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopCell.xib; sourceTree = "<group>"; };
 		29DE92C322E54853008955A9 /* MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29DE92C622E54853008955A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29DE92C822E54853008955A9 /* WalkThroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
@@ -145,8 +161,8 @@
 		298C5F4F22E6A61F00B2CDAB /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				298C5F7022E6BE2900B2CDAB /* MovieRequest.swift */,
 				298C5F5022E6A64300B2CDAB /* BaseRequest.swift */,
+				298C5F7022E6BE2900B2CDAB /* MovieRequest.swift */,
 				29D7F30222E7FC3000EACEE7 /* GenreRequest.swift */,
 			);
 			path = Request;
@@ -285,10 +301,18 @@
 		29DE92E122E56580008955A9 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				29D7F31422E85B7D00EACEE7 /* NowCell.swift */,
+				29D7F31522E85B7F00EACEE7 /* NowCell.xib */,
 				29DE92E222E565BD008955A9 /* WalkThoughCell.swift */,
 				29DE92E322E565BD008955A9 /* WalkThoughCell.xib */,
 				29D7F30E22E814B300EACEE7 /* CategoryCell.swift */,
 				29D7F30F22E814B300EACEE7 /* CategoryCell.xib */,
+				29D7F31822E8601E00EACEE7 /* TopCell.swift */,
+				29D7F31922E8601E00EACEE7 /* TopCell.xib */,
+				2962352822F281FB00672D22 /* TopRatedCell.swift */,
+				2962352922F281FB00672D22 /* TopRatedCell.xib */,
+				2962352C22F2824900672D22 /* PopularTableViewCell.swift */,
+				2962352D22F2824900672D22 /* PopularTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -380,7 +404,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				29D7F31122E814B300EACEE7 /* CategoryCell.xib in Resources */,
+				29D7F31B22E8601E00EACEE7 /* TopCell.xib in Resources */,
 				29DE92D122E54853008955A9 /* LaunchScreen.storyboard in Resources */,
+				2962352F22F2824900672D22 /* PopularTableViewCell.xib in Resources */,
+				2962352B22F281FB00672D22 /* TopRatedCell.xib in Resources */,
+				29D7F31722E85B7F00EACEE7 /* NowCell.xib in Resources */,
 				29DE92E522E565BD008955A9 /* WalkThoughCell.xib in Resources */,
 				29DE92CE22E54853008955A9 /* Assets.xcassets in Resources */,
 				29DE92CC22E54853008955A9 /* Main.storyboard in Resources */,
@@ -443,6 +471,7 @@
 				298C5F4D22E6A60900B2CDAB /* BaseResult.swift in Sources */,
 				298C5F4A22E6A60900B2CDAB /* APIService.swift in Sources */,
 				298C5F6122E6B73E00B2CDAB /* URLs.swift in Sources */,
+				2962352A22F281FB00672D22 /* TopRatedCell.swift in Sources */,
 				29DE92E422E565BD008955A9 /* WalkThoughCell.swift in Sources */,
 				29DE92C722E54853008955A9 /* AppDelegate.swift in Sources */,
 				29DE92EB22E5B296008955A9 /* WalkThough.swift in Sources */,
@@ -464,9 +493,12 @@
 				29DE92E922E576A9008955A9 /* UIView+.swift in Sources */,
 				298C5F5322E6A89100B2CDAB /* APIKey.swift in Sources */,
 				298C5F4B22E6A60900B2CDAB /* BaseError.swift in Sources */,
+				2962352E22F2824900672D22 /* PopularTableViewCell.swift in Sources */,
+				29D7F31622E85B7F00EACEE7 /* NowCell.swift in Sources */,
 				298C5F6722E6B80000B2CDAB /* Genre.swift in Sources */,
 				29D7F30522E7FCB000EACEE7 /* GenreResponse.swift in Sources */,
 				29D7F31022E814B300EACEE7 /* CategoryCell.swift in Sources */,
+				29D7F31A22E8601E00EACEE7 /* TopCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
