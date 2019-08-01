@@ -19,12 +19,48 @@ final class MovieViewController: UIViewController {
         static let topCellHeight = 225 * Screen.ratioHeight
         static let TopTableViewRow = 2
     }
+    private let movieRepository = MovieRepositoryImpl(api: APIService.share)
+    private var nowsArray = [Movie]() {
+        didSet {
+            nowCollectionView.reloadData()
+        }
+    }
+    private var topRatedArray = [Movie]() {
+        didSet {
+            topTableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabbarItem()
         setupNowCollectionView()
         setupTopTableView()
+        fetchData()
+    }
+    
+    private func fetchData() {
+        movieRepository.getMovies(type: .upcoming, page: 1) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let nowMovieResponse):
+                guard let results = nowMovieResponse?.movies else { return }
+                self.nowsArray = results
+            case .failure(let error):
+                print(error as Any)
+            }
+        }
+        
+        movieRepository.getMovies(type: .top, page: 1) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let topRatedMovieResponse):
+                guard let results = topRatedMovieResponse?.movies else { return }
+                self.topRatedArray = results
+            case .failure(let error):
+                print(error as Any)
+            }
+        }
     }
     
     private func setupNowCollectionView() {
@@ -53,12 +89,13 @@ final class MovieViewController: UIViewController {
 extension MovieViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return nowsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: NowCell = collectionView.dequeueReusableCell(for: indexPath)
+        cell.setContentForCell(data: nowsArray[indexPath.row])
         return cell
     }
 }
@@ -81,6 +118,16 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PopularTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        if topRatedArray.count != 0 {
+            switch indexPath.row {
+            case 0:
+                cell.topRatedArray = Array(topRatedArray[0..<10])
+            case 1:
+                cell.topRatedArray = Array(topRatedArray[10..<20])
+            default:
+                return UITableViewCell()
+            }
+        }
         return cell
     }
     
