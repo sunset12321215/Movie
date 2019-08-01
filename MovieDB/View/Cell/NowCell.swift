@@ -15,10 +15,5 @@ final class NowCell: UICollectionViewCell, NibReusable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    func setContentForCell() {
-        
     }
 }

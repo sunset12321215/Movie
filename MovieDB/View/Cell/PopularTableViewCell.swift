@@ -10,7 +10,7 @@ import UIKit
 
 final class PopularTableViewCell: UITableViewCell, NibReusable {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     private struct Constant {
         static let cellHeight: CGFloat = 225 * Screen.ratioHeight
@@ -59,4 +59,3 @@ extension PopularTableViewCell: UICollectionViewDelegateFlowLayout {
         return Constant.minimumLineSpacing
     }
 }
-
