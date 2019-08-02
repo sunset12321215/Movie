@@ -11,6 +11,7 @@ import UIKit
 final class NowCell: UICollectionViewCell, NibReusable {
 
     @IBOutlet private weak var movieImageView: UIImageView!
+    @IBOutlet private weak var hidenImageView: UIImageView!
     @IBOutlet private weak var movieNameLabel: UILabel!
     
     override func awakeFromNib() {
@@ -20,6 +21,7 @@ final class NowCell: UICollectionViewCell, NibReusable {
     func setContentForCell(data: Movie) {
         movieImageView.showAnimatedGradientSkeleton()
         let fullImageURL = URL(string: String(URLs.APIImagesOriginalPath) + data.posterPath)
+        hidenImageView.sd_setImage(with: fullImageURL, completed: nil)
         movieImageView.sd_setImage(with: fullImageURL) { (_, _, _, _) in
             self.movieImageView.hideSkeleton()
         }

@@ -19,17 +19,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="140" height="256"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kln-gL-9nh">
+                        <rect key="frame" x="7" y="52" width="126" height="168"/>
+                    </imageView>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Khv-8j-gUv">
+                        <rect key="frame" x="7" y="52" width="126" height="168"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="win-EB-ye1">
+                            <rect key="frame" x="0.0" y="0.0" width="126" height="168"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <blurEffect style="light"/>
+                    </visualEffectView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poster_not_available" translatesAutoresizingMaskIntoConstraints="NO" id="vhP-qj-miS">
                         <rect key="frame" x="0.0" y="0.0" width="140" height="210"/>
                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_ribbon" translatesAutoresizingMaskIntoConstraints="NO" id="2dc-i0-JkO">
-                        <rect key="frame" x="7" y="-7" width="140" height="210"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast &amp; Furious Presents: Hobbs &amp; Shaw" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeL-as-KZT">
@@ -38,24 +43,40 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_ribbon" translatesAutoresizingMaskIntoConstraints="NO" id="2dc-i0-JkO">
+                        <rect key="frame" x="58" y="-7" width="90" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="2dc-i0-JkO" secondAttribute="height" multiplier="1:1" id="UZC-MU-cnp"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="vhP-qj-miS" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="210/256" id="0Lf-ez-l0J"/>
                 <constraint firstItem="vhP-qj-miS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="0nV-ay-REl"/>
+                <constraint firstItem="Kln-gL-9nh" firstAttribute="width" secondItem="vhP-qj-miS" secondAttribute="width" multiplier="9/10" id="5f3-Um-Hed"/>
                 <constraint firstItem="vhP-qj-miS" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="DPo-1E-0A9"/>
+                <constraint firstItem="2dc-i0-JkO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="-7" id="GE8-Pj-ivm"/>
+                <constraint firstItem="eeL-as-KZT" firstAttribute="top" secondItem="Kln-gL-9nh" secondAttribute="bottom" id="RFx-W8-gsu"/>
+                <constraint firstItem="Kln-gL-9nh" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="RzW-iy-raD"/>
                 <constraint firstItem="vhP-qj-miS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="USz-FV-fef"/>
-                <constraint firstItem="2dc-i0-JkO" firstAttribute="height" secondItem="vhP-qj-miS" secondAttribute="height" id="V9E-eO-e3U"/>
                 <constraint firstItem="eeL-as-KZT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="440/256" id="ZbH-kR-Pbv"/>
+                <constraint firstItem="Khv-8j-gUv" firstAttribute="width" secondItem="Kln-gL-9nh" secondAttribute="width" id="bc8-fa-rhh"/>
+                <constraint firstItem="Khv-8j-gUv" firstAttribute="bottom" secondItem="Kln-gL-9nh" secondAttribute="bottom" id="d8b-Zy-6lA"/>
+                <constraint firstItem="2dc-i0-JkO" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" constant="8" id="dSs-G8-oro"/>
+                <constraint firstItem="Khv-8j-gUv" firstAttribute="height" secondItem="Kln-gL-9nh" secondAttribute="height" id="iNF-FI-eI0"/>
+                <constraint firstItem="Kln-gL-9nh" firstAttribute="height" secondItem="vhP-qj-miS" secondAttribute="height" multiplier="4/5" id="iNu-SF-sXk"/>
                 <constraint firstAttribute="bottom" secondItem="eeL-as-KZT" secondAttribute="bottom" id="lP5-oq-cbS"/>
                 <constraint firstAttribute="trailing" secondItem="eeL-as-KZT" secondAttribute="trailing" id="nfm-Gq-rYI"/>
-                <constraint firstItem="2dc-i0-JkO" firstAttribute="width" secondItem="vhP-qj-miS" secondAttribute="width" id="sWw-fj-gsq"/>
                 <constraint firstItem="eeL-as-KZT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tCw-fq-Rya"/>
-                <constraint firstItem="2dc-i0-JkO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="-7" id="u59-xV-iCd"/>
-                <constraint firstItem="2dc-i0-JkO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="yTH-i3-YEa"/>
+                <constraint firstItem="Khv-8j-gUv" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="z0S-2t-qgD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="hidenImageView" destination="Kln-gL-9nh" id="Cw1-rj-eYR"/>
                 <outlet property="movieImageView" destination="vhP-qj-miS" id="pvv-0s-EJM"/>
                 <outlet property="movieNameLabel" destination="eeL-as-KZT" id="Ype-th-VJw"/>
             </connections>
