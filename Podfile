@@ -14,5 +14,7 @@ pod 'ObjectMapper'
 pod 'RealmSwift'
 pod 'SDWebImage'
 pod 'SkeletonView'
+pod 'ReadMoreTextView'
+pod 'MIBadgeButton'
 
 end
