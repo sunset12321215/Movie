@@ -84,7 +84,7 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? CategoryCell else { return }
-        
+
         UIView.animate(withDuration: Constant.durationTime, animations: {
             cell.transform = .init(scaleX: Constant.cellScaleFirst,
                                    y: Constant.cellScaleFirst)

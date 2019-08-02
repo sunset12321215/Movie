@@ -18,6 +18,10 @@ final class MovieViewController: UIViewController {
         static let nowCellWidth = 140 * Screen.ratioWidth
         static let topCellHeight = 225 * Screen.ratioHeight
         static let TopTableViewRow = 2
+        static let cellScaleFirst: CGFloat = 0.8
+        static let cellScaleSecond: CGFloat = 0.9
+        static let cellScaleMax: CGFloat = 1
+        static let durationTime = 0.1
     }
     private let movieRepository = MovieRepositoryImpl(api: APIService.share)
     private var nowsArray = [Movie]() {
@@ -75,7 +79,9 @@ final class MovieViewController: UIViewController {
         topTableView.do {
             $0.delegate = self
             $0.dataSource = self
-            $0.register(cellType: PopularTableViewCell.self)
+            $0.register(cellType: TopRatedArrayCell.self)
+            $0.register(UINib(nibName: "TopRatedArrayCell", bundle: nil),
+                        forCellReuseIdentifier: "TopRatedArrayCell")
         }
     }
     
@@ -98,6 +104,31 @@ extension MovieViewController: UICollectionViewDataSource, UICollectionViewDeleg
         cell.setContentForCell(data: nowsArray[indexPath.row])
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? NowCell else { return }
+        
+        UIView.animate(withDuration: Constant.durationTime, animations: {
+            cell.transform = .init(scaleX: Constant.cellScaleFirst,
+                                   y: Constant.cellScaleFirst)
+        }) { (_) in
+            UIView.animate(withDuration: Constant.durationTime, animations: {
+                cell.transform = .init(scaleX: Constant.cellScaleMax,
+                                       y: Constant.cellScaleMax)
+            }) { (_) in
+                UIView.animate(withDuration: Constant.durationTime, animations: {
+                    cell.transform = .init(scaleX: Constant.cellScaleSecond,
+                                           y: Constant.cellScaleSecond)
+                }, completion: { (_) in
+                    cell.transform = .init(scaleX: Constant.cellScaleMax,
+                                           y: Constant.cellScaleMax)
+                    guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController else {return}
+                    self.present(detailVC, animated: true, completion: nil)
+                })
+            }
+        }
+    }
 }
 
 extension MovieViewController: UICollectionViewDelegateFlowLayout {
@@ -117,7 +148,8 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: PopularTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        let cell: TopRatedArrayCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.delegate = self
         if topRatedArray.count != 0 {
             switch indexPath.row {
             case 0:
@@ -134,5 +166,20 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constant.topCellHeight
+    }
+}
+
+extension MovieViewController: TopRatedArrayCellDelegate {
+    func gotoDetailViewController() {
+        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController else {return}
+        self.present(detailVC, animated: true, completion: nil)
+    }
+    
+    func passPosition(_ position: CGFloat) {
+        guard let topRatedArrayCellOne = topTableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? TopRatedArrayCell else { return }
+        topRatedArrayCellOne.collectionView.contentOffset.x = position
+        
+        guard let topRatedArrayCellTwo = topTableView.cellForRow(at: IndexPath(item: 1, section: 0)) as? TopRatedArrayCell else { return }
+        topRatedArrayCellTwo.collectionView.contentOffset.x = position
     }
 }
