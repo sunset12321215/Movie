@@ -10,37 +10,58 @@ import UIKit
 
 final class MovieViewController: UIViewController {
  
-    @IBOutlet private weak var nowCollectionView: UICollectionView!
-    @IBOutlet private weak var topTableView: UITableView!
+    @IBOutlet private weak var nowMovieCollectionView: UICollectionView!
+    @IBOutlet private weak var topMovieCollectionView: UICollectionView!
+    @IBOutlet private weak var navigationView: UIView!
+    @IBOutlet private weak var contentView: UIView!
     
     private struct Constant {
-        static let nowCellHeight = 256 * Screen.ratioHeight
-        static let nowCellWidth = 140 * Screen.ratioWidth
-        static let topCellHeight = 225 * Screen.ratioHeight
-        static let TopTableViewRow = 2
-        static let cellScaleFirst: CGFloat = 0.8
-        static let cellScaleSecond: CGFloat = 0.9
+        static let nowCellHeight = 218 * Screen.ratioHeight
+        static let nowCellWidth = 119.47 * Screen.ratioWidth
+        static let topCellHeight = 191.6 * Screen.ratioHeight
+        static let cellScale: CGFloat = 0.6
         static let cellScaleMax: CGFloat = 1
-        static let durationTime = 0.1
+        static let durationTime = 0.2
+        static let contentViewWidth = 320 * Screen.ratioWidth
+        static let contentViewHeight = 700 * Screen.ratioHeight
     }
     private let movieRepository = MovieRepositoryImpl(api: APIService.share)
-    private var nowsArray = [Movie]() {
+    private var nowsMovieArray = Array(repeating: Movie(), count: 3) {
         didSet {
-            nowCollectionView.reloadData()
+            nowMovieCollectionView.reloadData()
         }
     }
-    private var topRatedArray = [Movie]() {
+    private var topRatedMovieArray = Array(repeating: Movie(), count: 6) {
         didSet {
-            topTableView.reloadData()
+            topMovieCollectionView.reloadData()
         }
+    }
+    
+    private func setupViews() {
+        setupTabbarItem()
+        setupNowMovieCollectionView()
+        setupTopMovieCollectionView()
+        fetchData()
+        setupNavigationView()
+        setupContentView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTabbarItem()
-        setupNowCollectionView()
-        setupTopTableView()
-        fetchData()
+        setupViews()
+    }
+    
+    private func setupContentView() {
+        let contentViewX = contentView.frame.origin.x
+        let contentViewY = contentView.frame.origin.y
+        contentView.frame = CGRect(x: contentViewX,
+                                   y: contentViewY,
+                                   width: Constant.contentViewWidth,
+                                   height: Constant.contentViewHeight)
+    }
+    
+    private func setupNavigationView() {
+        navigationView.backgroundColor = .firstGradientColor
     }
     
     private func fetchData() {
@@ -49,7 +70,7 @@ final class MovieViewController: UIViewController {
             switch result {
             case .success(let nowMovieResponse):
                 guard let results = nowMovieResponse?.movies else { return }
-                self.nowsArray = results
+                self.nowsMovieArray = results
             case .failure(let error):
                 print(error as Any)
             }
@@ -60,74 +81,115 @@ final class MovieViewController: UIViewController {
             switch result {
             case .success(let topRatedMovieResponse):
                 guard let results = topRatedMovieResponse?.movies else { return }
-                self.topRatedArray = results
+                self.topRatedMovieArray = results
             case .failure(let error):
                 print(error as Any)
             }
         }
     }
     
-    private func setupNowCollectionView() {
-        nowCollectionView.do {
+    private func setupNowMovieCollectionView() {
+        nowMovieCollectionView.do {
             $0.delegate = self
             $0.dataSource = self
-            $0.register(cellType: NowCell.self)
+            $0.register(cellType: NowMovieCell.self)
+            $0.register(cellType: NowMovieMoreCell.self)
         }
     }
     
-    private func setupTopTableView() {
-        topTableView.do {
+    private func setupTopMovieCollectionView() {
+        topMovieCollectionView.do {
             $0.delegate = self
             $0.dataSource = self
-            $0.register(cellType: TopRatedArrayCell.self)
-            $0.register(UINib(nibName: "TopRatedArrayCell", bundle: nil),
-                        forCellReuseIdentifier: "TopRatedArrayCell")
+            $0.register(cellType: TopRatedCell.self)
+            $0.register(cellType: TopRateMovieMoreCell.self)
         }
     }
     
     private func setupTabbarItem() {
-        self.title = "MOVIE"
-        self.tabBarItem.image = UIImage(named: "Movie")
-        self.tabBarItem.selectedImage = UIImage(named: "MovieSlected")?.withRenderingMode(.alwaysOriginal)
+        tabBarItem.selectedImage = UIImage(named: "MovieSlectedImage")?.withRenderingMode(.alwaysOriginal)
     }
 }
 
 extension MovieViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return nowsArray.count
+        switch collectionView {
+        case nowMovieCollectionView:
+            return nowsMovieArray.count + 1
+        case topMovieCollectionView:
+            return topRatedMovieArray.count + 1
+        default:
+            return 0
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: NowCell = collectionView.dequeueReusableCell(for: indexPath)
-        cell.setContentForCell(data: nowsArray[indexPath.row])
-        return cell
+        switch collectionView {
+        case nowMovieCollectionView:
+            if indexPath.row == nowsMovieArray.count {
+                let cell: NowMovieMoreCell = collectionView.dequeueReusableCell(for: indexPath)
+                return cell
+            } else {
+                let cell: NowMovieCell = collectionView.dequeueReusableCell(for: indexPath)
+                cell.setContentForCell(data: nowsMovieArray[indexPath.row])
+                return cell
+            }
+        case topMovieCollectionView:
+            if indexPath.row == topRatedMovieArray.count {
+                let cell: TopRateMovieMoreCell = collectionView.dequeueReusableCell(for: indexPath)
+                return cell
+            } else {
+                let cell: TopRatedCell = collectionView.dequeueReusableCell(for: indexPath)
+                cell.setContentForCell(data: topRatedMovieArray[indexPath.row])
+                return cell
+            }
+        default:
+            return UICollectionViewCell()
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? NowCell else { return }
-        
-        UIView.animate(withDuration: Constant.durationTime, animations: {
-            cell.transform = .init(scaleX: Constant.cellScaleFirst,
-                                   y: Constant.cellScaleFirst)
-        }) { (_) in
-            UIView.animate(withDuration: Constant.durationTime, animations: {
-                cell.transform = .init(scaleX: Constant.cellScaleMax,
-                                       y: Constant.cellScaleMax)
-            }) { (_) in
-                UIView.animate(withDuration: Constant.durationTime, animations: {
-                    cell.transform = .init(scaleX: Constant.cellScaleSecond,
-                                           y: Constant.cellScaleSecond)
-                }, completion: { (_) in
-                    cell.transform = .init(scaleX: Constant.cellScaleMax,
-                                           y: Constant.cellScaleMax)
-                    guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController else {return}
-                    self.present(detailVC, animated: true, completion: nil)
-                })
-            }
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        if(indexPath.row == nowsMovieArray.count) {
+            return
         }
+        guard let cell = collectionView.cellForItem(at: indexPath) else {
+            return
+        }
+        UIView.animate(withDuration: Constant.durationTime) {
+            cell.transform = .init(scaleX: Constant.cellScale, y: Constant.cellScale)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        if(indexPath.row == nowsMovieArray.count) {
+            return
+        }
+        guard let cell = collectionView.cellForItem(at: indexPath) else {
+            return
+        }
+        UIView.animate(withDuration: Constant.durationTime) {
+            cell.transform = .identity
+        }
+        
+        var movie = Movie()
+        switch collectionView {
+        case nowMovieCollectionView:
+            movie = nowsMovieArray[indexPath.row]
+        case topMovieCollectionView:
+            movie = topRatedMovieArray[indexPath.row]
+        default:
+            return
+        }
+        let detailViewController = DetailViewController.instantiate()
+        detailViewController.movie = movie
+        present(detailViewController, animated: true, completion: nil)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
     }
 }
 
@@ -135,51 +197,15 @@ extension MovieViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: Constant.nowCellWidth,
-                      height: Constant.nowCellHeight)
-    }
-}
-
-extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-        return Constant.TopTableViewRow
-    }
-    
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: TopRatedArrayCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.delegate = self
-        if topRatedArray.count != 0 {
-            switch indexPath.row {
-            case 0:
-                cell.topRatedArray = Array(topRatedArray[0..<10])
-            case 1:
-                cell.topRatedArray = Array(topRatedArray[10..<20])
-            default:
-                return UITableViewCell()
-            }
+        switch collectionView {
+        case nowMovieCollectionView:
+            return CGSize(width: Constant.nowCellWidth,
+                          height: Constant.nowCellHeight)
+        case topMovieCollectionView:
+            return CGSize(width: Constant.nowCellWidth,
+                          height: Constant.topCellHeight)
+        default:
+            return CGSize.zero
         }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView,
-                   heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constant.topCellHeight
-    }
-}
-
-extension MovieViewController: TopRatedArrayCellDelegate {
-    func gotoDetailViewController() {
-        guard let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as? DetailViewController else {return}
-        self.present(detailVC, animated: true, completion: nil)
-    }
-    
-    func passPosition(_ position: CGFloat) {
-        guard let topRatedArrayCellOne = topTableView.cellForRow(at: IndexPath(item: 0, section: 0)) as? TopRatedArrayCell else { return }
-        topRatedArrayCellOne.collectionView.contentOffset.x = position
-        
-        guard let topRatedArrayCellTwo = topTableView.cellForRow(at: IndexPath(item: 1, section: 0)) as? TopRatedArrayCell else { return }
-        topRatedArrayCellTwo.collectionView.contentOffset.x = position
     }
 }

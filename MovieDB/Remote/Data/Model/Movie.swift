@@ -8,50 +8,46 @@
 
 import ObjectMapper
 
-class Movie: Mappable {
-    var voteCount: Int = 0
-    var id: Int = 0
-    var video = false
-    var voteAverage: Float = 0.0
-    var title = ""
-    var popularity: Float = 0.0
-    var posterPath = ""
-    var originalLanguage = ""
-    var originalTitle = ""
+final class Movie: Object, Mappable {
+    @objc dynamic var voteCount: Int = 0
+    @objc dynamic var id: Int = 0
+    @objc dynamic var video = false
+    @objc dynamic var voteAverage: Float = 0.0
+    @objc dynamic var title = ""
+    @objc dynamic var popularity: Float = 0.0
+    @objc dynamic var posterPath = ""
+    @objc dynamic var originalLanguage = ""
+    @objc dynamic var originalTitle = ""
     var genreIds = [Int]()
-    var backdropPath = ""
-    var adult = false
-    var overview = ""
-    var releaseDate = ""
-    // Detail
-    var imdbId = ""
-    var budget: Int = 0
-    var genres = [Genre]()
-    var revenue: Int = 0
-    var runtime: Int = 0
-    var status = ""
-    var tagline = ""
+    @objc dynamic var backdropPath = ""
+    @objc dynamic var adult = false
+    @objc dynamic var overview = ""
+    @objc dynamic var releaseDate = ""
+    @objc dynamic var imdbId = ""
+    @objc dynamic var budget: Int = 0
+    var genres = [Genre]() 
+    @objc dynamic var revenue: Int = 0
+    @objc dynamic var runtime: Int = 0
+    @objc dynamic var status = ""
+    @objc dynamic var tagline = ""
     var cast = [Cast]()
     var crew = [Crew]()
-    // Job
-    var character = ""
-    var job = ""
-    // Info
+    var videos = [Video]()
+    @objc dynamic var character = ""
+    @objc dynamic var job = ""
+    @objc dynamic var isFavorite = false
     var info: String {
-        let year = Date.fromString(date: releaseDate).year
-        let duration = Util.minutesToHoursMinutes(minutes: runtime)
-        return "(\(year)) - \(duration)"
+        let date = Date.fromString(date: releaseDate)
+        let dateString = "\(date)".split(separator: " ")[0]
+        return String(dateString)
     }
-    var genresString: String {
-        let string = genres.map { String($0.name) }
-        return string.joined(separator: ", ")
-    }
+    
     var year: String {
         let year = Date.fromString(date: releaseDate).year
         return year
     }
     
-    static func primaryKey() -> String? {
+    override static func primaryKey() -> String? {
         return "id"
     }
     
@@ -74,7 +70,6 @@ class Movie: Mappable {
         adult <- map["adult"]
         overview <- map["overview"]
         releaseDate <- map["release_date"]
-        // Detail
         imdbId <- map["imdb_id"]
         budget <- map["budget"]
         genres <- map["genres"]
@@ -84,8 +79,7 @@ class Movie: Mappable {
         tagline <- map["tagline"]
         cast <- map["credits.cast"]
         crew <- map["credits.crew"]
-//        videos <- map["videos.results"]
-        // Info
+        videos <- map["videos"]     
         character <- map["character"]
         job <- map["job"]
     }

@@ -12,9 +12,17 @@ final class CastCell: UICollectionViewCell, NibReusable {
 
     @IBOutlet private weak var castImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var jobLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func setContentForCell(data: Cast) {
+        castImageView.showAnimatedGradientSkeleton()
+        let urlAvatar = URL(string: URLs.APIImagesOriginalPath + data.profilePath)
+        nameLabel.text = data.name
+        castImageView.sd_setImage(with: urlAvatar) { (_, _, _, _) in
+            self.castImageView.hideSkeleton()
+        }
     }
 }

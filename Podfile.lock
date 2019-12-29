@@ -1,26 +1,35 @@
 PODS:
-  - Alamofire (4.8.2)
+  - Alamofire (4.9.1)
+  - BWWalkthrough (4.0.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - Cosmos (20.0.1)
   - MIBadgeButton (0.0.7)
-  - ObjectMapper (3.5.0)
+  - ObjectMapper (3.5.1)
   - ReadMoreTextView (3.0.1)
-  - Realm (3.16.2):
-    - Realm/Headers (= 3.16.2)
-  - Realm/Headers (3.16.2)
-  - RealmSwift (3.16.2):
-    - Realm (= 3.16.2)
+  - Realm (4.3.0):
+    - Realm/Headers (= 4.3.0)
+  - Realm/Headers (4.3.0)
+  - RealmSwift (4.3.0):
+    - Realm (= 4.3.0)
   - Reusable (4.1.0):
     - Reusable/Storyboard (= 4.1.0)
     - Reusable/View (= 4.1.0)
   - Reusable/Storyboard (4.1.0)
   - Reusable/View (4.1.0)
-  - SDWebImage (5.0.6):
-    - SDWebImage/Core (= 5.0.6)
-  - SDWebImage/Core (5.0.6)
-  - SkeletonView (1.6)
-  - Then (2.5.0)
+  - SDWebImage (5.4.0):
+    - SDWebImage/Core (= 5.4.0)
+  - SDWebImage/Core (5.4.0)
+  - SkeletonView (1.8.2)
+  - Then (2.6.0)
+  - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
   - Alamofire
+  - BWWalkthrough
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
+  - Cosmos
   - MIBadgeButton
   - ObjectMapper
   - ReadMoreTextView
@@ -29,10 +38,13 @@ DEPENDENCIES:
   - SDWebImage
   - SkeletonView
   - Then
+  - youtube-ios-player-helper
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
+    - BWWalkthrough
+    - Cosmos
     - MIBadgeButton
     - ObjectMapper
     - ReadMoreTextView
@@ -42,19 +54,34 @@ SPEC REPOS:
     - SDWebImage
     - SkeletonView
     - Then
+    - youtube-ios-player-helper
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :branch: wip/swift4
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
+    :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  BWWalkthrough: 9f46edbd1a145c74f3e5287b01cb4a884c840bf2
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Cosmos: b47fddf2102bb48580cd3025d9ce0a5c658a65da
   MIBadgeButton: 7c34f180a194d152bb3817c05443eab3a01433cd
-  ObjectMapper: 078b564ed25c6578b62588e306bf1da3924636d4
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   ReadMoreTextView: 19147adf93abce6d7271e14031a00303fe28720d
-  Realm: 0e73b4edeb5b6a90da3d83206883b2e34e00eb38
-  RealmSwift: a81e650171ef0a5f999df1ed8d39ba8d6fce88a4
+  Realm: 9357c3589555793e1860a7104a7412bca4a48d99
+  RealmSwift: 402f1e379a8ef82c635313037b043f0f06de880c
   Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
-  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
-  SkeletonView: 6c2bf622c352c7e36b4f3c8d73afc46d6c9360d6
-  Then: 0157115e883545c77967b452fe74a1d25fb796e1
+  SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
+  SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
+  Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
+  youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: d7e06b22c86784061c66956f24fe5bb97f24ffe6
+PODFILE CHECKSUM: fab7468f9420fa40390dd7a80967949d2d9c3a13
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.8.4

@@ -9,4 +9,12 @@ class MovieRequest: BaseRequest {
         ]
         super.init(url: type.url, requestType: .get, body: body)
     }
+    
+    required init(id: Int, page: Int) {
+        let body: [String: Any]  = [
+            "page": page
+        ]
+        let url = URLs.APIGetMovieByID + "\(id)" + "/movies"
+        super.init(url: url, requestType: .get, body: body)
+    }
 }

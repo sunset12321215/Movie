@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CategoryCell: UITableViewCell, Reusable {
+final class CategoryCell: UITableViewCell, NibReusable {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var avatar: UIImageView!

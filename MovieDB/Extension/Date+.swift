@@ -5,9 +5,10 @@
 import Foundation
 
 extension Date {
-    static func fromString(date: String) -> Date {
+    static func fromString(date: String) -> Date  {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.locale = Locale(identifier: "VI")
         guard let date = dateFormatter.date(from: date) else {
             return Date()
         }

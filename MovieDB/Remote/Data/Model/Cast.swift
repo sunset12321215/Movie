@@ -8,30 +8,27 @@
 
 import ObjectMapper
 
-struct Cast: Mappable {
-    var castId: Int = 0
-    var character = ""
-    var creditId = ""
-    var gender: Int = 0
-    var id: Int = 0
-    var name = ""
-    var order: Int = 0
+class Cast: Mappable {
+    var id = 0
+    var name =  ""
     var profilePath = ""
+    var gender = 0
+    var knownForDepartment = ""
+    var biography = ""
+    var placeOfBirth = ""
     
-    init?(map: Map) {
+    required init?(map: Map) {
+        mapping(map: map)
     }
     
-    init(){
-    }
-    
-    mutating func mapping(map: Map) {
-        castId <- map["cast_id"]
-        character <- map["character"]
-        creditId <- map["credit_id"]
-        gender <- map["gender"]
+    func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
-        order <- map["order"]
         profilePath <- map["profile_path"]
+        gender <- map["gender"]
+        placeOfBirth <- map["placeOfBirth"]
+        knownForDepartment <- map["known_for_department"]
+        biography <- map["biography"]
     }
 }
+

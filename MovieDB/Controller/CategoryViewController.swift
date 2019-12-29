@@ -11,6 +11,7 @@ import UIKit
 final class CategoryViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var navigationView: UIView!
     
     private struct Constant {
         static let categoryCellHeight: CGFloat = 200 * Screen.ratioHeight
@@ -25,27 +26,34 @@ final class CategoryViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    private var movies = [Movie]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func setupViews() {
         setupTabbarItem()
         setupTableView()
         fetchData()
+        setupNavigationView()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+    }
+    
+    private func setupNavigationView() {
+        navigationView.backgroundColor = .firstGradientColor
     }
     
     private func setupTableView() {
         tableView.do {
             $0.dataSource = self
             $0.delegate = self
-            $0.register(UINib(nibName: "CategoryCell", bundle: nil),
-                        forCellReuseIdentifier: "CategoryCell")
+            $0.register(cellType: CategoryCell.self)
         }
     }
     
     private func setupTabbarItem() {
-        self.title = "CATEGORY"
-        self.tabBarItem.image = UIImage(named: "Categories")
-        self.tabBarItem.selectedImage = UIImage(named: "CategoriesSelected")?.withRenderingMode(.alwaysOriginal)
+        tabBarItem.selectedImage = UIImage(named: "CategoriesSelectedImage")?.withRenderingMode(.alwaysOriginal)
     }
     
     private func fetchData() {
@@ -83,8 +91,8 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
+        
         guard let cell = tableView.cellForRow(at: indexPath) as? CategoryCell else { return }
-
         UIView.animate(withDuration: Constant.durationTime, animations: {
             cell.transform = .init(scaleX: Constant.cellScaleFirst,
                                    y: Constant.cellScaleFirst)
@@ -102,5 +110,13 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
                 })
             }
         }
+        
+        let genre = genres[indexPath.row]
+        let genreID = genre.id
+        let genreName = genre.name
+        let movieByGenreVC = MovieByGenreViewController.instantiate()
+        movieByGenreVC.idCategories = genreID
+        movieByGenreVC.genreName = genreName
+        present(movieByGenreVC, animated: true, completion: nil)
     }
 }

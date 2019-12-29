@@ -1,5 +1,5 @@
 //
-//  NowCell.swift
+//  NowMovieCell.swift
 //  MovieDB
 //
 //  Created by CuongVX-D1 on 7/23/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class NowCell: UICollectionViewCell, NibReusable {
+final class NowMovieCell: UICollectionViewCell, NibReusable {
 
     @IBOutlet private weak var movieImageView: UIImageView!
     @IBOutlet private weak var hidenImageView: UIImageView!

@@ -16,5 +16,10 @@ pod 'SDWebImage'
 pod 'SkeletonView'
 pod 'ReadMoreTextView'
 pod 'MIBadgeButton'
+pod 'Cosmos'
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'wip/swift4'
+pod 'BWWalkthrough'
+pod 'youtube-ios-player-helper'
+#pod 'VGPlayer', '~> 0.2.0'
 
 end

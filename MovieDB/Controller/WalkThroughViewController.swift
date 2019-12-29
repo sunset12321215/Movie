@@ -14,6 +14,7 @@ final class WalkThroughViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageControl: CustomImagePageControl!
     @IBOutlet private weak var getStartedButton: UIButton!
+    @IBOutlet private weak var nextButton: UIButton!
     
     //  MARK: - Variable & Constants
     private let arrayWalkThough = [
@@ -33,6 +34,7 @@ final class WalkThroughViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         setupGetStartedButton()
+        setupViews()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,7 +42,11 @@ final class WalkThroughViewController: UIViewController {
         setupPageControl()
     }
     
-    //  MARK: - Setup View
+    //  MARK: - Setup Views
+    private func setupViews() {
+        nextButton.layer.cornerRadius = nextButton.frame.height / 4
+    }
+    
     private func setupPageControl() {
         pageControl.updateDots()
         pageControl.numberOfPages = arrayWalkThough.count
@@ -63,11 +69,13 @@ final class WalkThroughViewController: UIViewController {
     @IBAction func NextAction(_ sender: UIButton) {
         pageControl.currentPage = pageControl.currentPage + 1
         pageControl.updateDots()
-        collectionView.scrollToItem(at: IndexPath(item: pageControl.currentPage, section: 0),
+        collectionView.scrollToItem(at: IndexPath(item: pageControl.currentPage,
+                                                  section: 0),
                                     at: .right,
                                     animated: true)
         if pageControl.currentPage == 2 {
             getStartedButton.isHidden = false
+            nextButton.isHidden = true
         }
     }
     
@@ -112,8 +120,10 @@ extension WalkThroughViewController: UICollectionViewDelegateFlowLayout {
         pageControl.updateDots()
         if position == 2 {
             getStartedButton.isHidden = false
+            nextButton.isHidden = true
         } else {
             getStartedButton.isHidden = true
+            nextButton.isHidden = false
         }
     }
 }
