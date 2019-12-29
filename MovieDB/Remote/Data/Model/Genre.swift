@@ -8,14 +8,17 @@
 
 import ObjectMapper
 
-struct Genre: Mappable {
+final class Genre: Mappable {
     var id: Int = 0
     var name = ""
     
-    init?(map: Map) {
+    required init?(map: Map) {
     }
     
-    mutating func mapping(map: Map) {
+    required init() {
+    }
+    
+    func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
     }

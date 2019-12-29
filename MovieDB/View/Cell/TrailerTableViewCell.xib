@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="160" id="KGk-i7-Jjw" customClass="TrailerTableViewCell" customModule="Movie_Trailer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="170" height="159.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MFX-mv-94t">
+                        <rect key="frame" x="16" y="5" width="138" height="99.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="KHp-HB-pxC">
+                        <rect key="frame" x="16" y="109.5" width="138" height="27"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khZ-Ka-SVc">
+                        <rect key="frame" x="16" y="136.5" width="138" height="18"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WiL-v9-Ezy" userLabel="LineView">
+                        <rect key="frame" x="0.0" y="158" width="170" height="1.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1.5" id="yTg-JX-YXO"/>
+                        </constraints>
+                    </view>
+                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="4XV-uB-hn3">
+                        <rect key="frame" x="71.5" y="41.5" width="27" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="4XV-uB-hn3" secondAttribute="height" multiplier="1/1" id="afl-kV-dk4"/>
+                        </constraints>
+                    </activityIndicatorView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="khZ-Ka-SVc" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="2AQ-QW-Jz2"/>
+                    <constraint firstItem="khZ-Ka-SVc" firstAttribute="top" secondItem="KHp-HB-pxC" secondAttribute="bottom" id="2kW-Uf-l4h"/>
+                    <constraint firstItem="KHp-HB-pxC" firstAttribute="top" secondItem="MFX-mv-94t" secondAttribute="bottom" constant="5" id="4ge-vi-RrK"/>
+                    <constraint firstItem="MFX-mv-94t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="6BD-NS-hRa"/>
+                    <constraint firstItem="WiL-v9-Ezy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8HR-Uu-Dbm"/>
+                    <constraint firstItem="KHp-HB-pxC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="8sa-G7-bAt"/>
+                    <constraint firstItem="MFX-mv-94t" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="100/160" id="Cmz-Wh-FZg"/>
+                    <constraint firstItem="MFX-mv-94t" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Etl-kR-tvR"/>
+                    <constraint firstAttribute="trailing" secondItem="WiL-v9-Ezy" secondAttribute="trailing" id="Lu0-Uz-2Gh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="MFX-mv-94t" secondAttribute="trailing" id="S6z-TP-DJT"/>
+                    <constraint firstItem="4XV-uB-hn3" firstAttribute="centerY" secondItem="MFX-mv-94t" secondAttribute="centerY" id="b5M-7D-AiC"/>
+                    <constraint firstItem="4XV-uB-hn3" firstAttribute="height" secondItem="KHp-HB-pxC" secondAttribute="height" id="bPp-ta-V5H"/>
+                    <constraint firstItem="4XV-uB-hn3" firstAttribute="centerX" secondItem="MFX-mv-94t" secondAttribute="centerX" id="eOF-v6-GnO"/>
+                    <constraint firstItem="khZ-Ka-SVc" firstAttribute="height" secondItem="KHp-HB-pxC" secondAttribute="height" multiplier="2/3" id="ihI-cY-Nob"/>
+                    <constraint firstItem="KHp-HB-pxC" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ljz-Jp-b0t"/>
+                    <constraint firstAttribute="bottom" secondItem="khZ-Ka-SVc" secondAttribute="bottom" constant="5" id="nyl-44-ycM"/>
+                    <constraint firstAttribute="bottom" secondItem="WiL-v9-Ezy" secondAttribute="bottom" id="ogx-5l-Rug"/>
+                    <constraint firstItem="khZ-Ka-SVc" firstAttribute="width" secondItem="KHp-HB-pxC" secondAttribute="width" id="rcv-0v-FDz"/>
+                    <constraint firstItem="KHp-HB-pxC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="tTd-Pv-bMs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="activityIndicatorView" destination="4XV-uB-hn3" id="yGf-SX-MAW"/>
+                <outlet property="trailerImageView" destination="MFX-mv-94t" id="Ikf-V2-j80"/>
+                <outlet property="trailerInfoLabel" destination="khZ-Ka-SVc" id="bCS-Hv-nws"/>
+                <outlet property="trailerNameLavel" destination="KHp-HB-pxC" id="fEC-5M-vIt"/>
+            </connections>
+            <point key="canvasLocation" x="132.80000000000001" y="236.58170914542731"/>
+        </tableViewCell>
+    </objects>
+</document>

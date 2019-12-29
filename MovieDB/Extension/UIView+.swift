@@ -9,7 +9,6 @@
 import Foundation
 
 extension UIView {
-    
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -36,5 +35,14 @@ extension UIView {
         set {
             layer.borderColor = newValue?.cgColor
         }
+    }
+}
+
+extension UIView {
+    func shake() {
+        self.transform = CGAffineTransform(translationX: 20, y: 10)
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: .beginFromCurrentState, animations: {
+            self.transform = CGAffineTransform.identity
+        }, completion: nil)
     }
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,31 +13,95 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0.1 Launcher" translatesAutoresizingMaskIntoConstraints="NO" id="SjO-5e-SI6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackGround" translatesAutoresizingMaskIntoConstraints="NO" id="SjO-5e-SI6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="65K-0q-xLD">
+                                <rect key="frame" x="156" y="272.5" width="102" height="107"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOVIE TRAILER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Glh-h1-xtE">
+                                <rect key="frame" x="109" y="409.5" width="196" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đề tài thực tập: Movie Trailer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZEy-Cj-Q8e">
+                                <rect key="frame" x="15" y="489.5" width="384" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sinh viên thực hiện: Vũ Xuân Cương" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FJl-Nd-aXF">
+                                <rect key="frame" x="15" y="561.5" width="384" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mã sinh viên: 1141460193" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OXl-wA-zZr">
+                                <rect key="frame" x="15" y="597.5" width="384" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lớp: CNTT3 - K11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="29Y-4N-v0b">
+                                <rect key="frame" x="15" y="633.5" width="384" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giảng viên HD: ThS. Đoàn Văn Trung" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="jbT-i5-cvQ">
+                                <rect key="frame" x="15" y="525.5" width="384" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FJl-Nd-aXF" secondAttribute="trailing" constant="15" id="3s4-rb-zst"/>
+                            <constraint firstItem="ZEy-Cj-Q8e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="8sX-t1-5pY"/>
+                            <constraint firstItem="29Y-4N-v0b" firstAttribute="top" secondItem="OXl-wA-zZr" secondAttribute="bottom" constant="15" id="Bxa-Mh-q3S"/>
+                            <constraint firstItem="29Y-4N-v0b" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="ChO-6r-gyU"/>
+                            <constraint firstItem="jbT-i5-cvQ" firstAttribute="top" secondItem="ZEy-Cj-Q8e" secondAttribute="bottom" constant="15" id="DZf-aP-gyx"/>
+                            <constraint firstItem="ZEy-Cj-Q8e" firstAttribute="top" secondItem="Glh-h1-xtE" secondAttribute="bottom" constant="50" id="G9v-di-zyb"/>
                             <constraint firstAttribute="bottom" secondItem="SjO-5e-SI6" secondAttribute="bottom" id="HB7-vZ-ybp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jbT-i5-cvQ" secondAttribute="trailing" constant="15" id="HBP-dh-5fY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="29Y-4N-v0b" secondAttribute="trailing" constant="15" id="J9h-de-PyM"/>
+                            <constraint firstItem="Glh-h1-xtE" firstAttribute="top" secondItem="65K-0q-xLD" secondAttribute="bottom" constant="30" id="PgJ-hs-3PF"/>
+                            <constraint firstItem="Glh-h1-xtE" firstAttribute="centerX" secondItem="65K-0q-xLD" secondAttribute="centerX" id="SE1-kP-5Yw"/>
+                            <constraint firstItem="jbT-i5-cvQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="SlC-Mt-DNk"/>
+                            <constraint firstItem="FJl-Nd-aXF" firstAttribute="leading" secondItem="jbT-i5-cvQ" secondAttribute="leading" id="TEb-VQ-fDF"/>
+                            <constraint firstItem="FJl-Nd-aXF" firstAttribute="top" secondItem="jbT-i5-cvQ" secondAttribute="bottom" constant="15" id="Vi5-Pd-Xlj"/>
                             <constraint firstItem="SjO-5e-SI6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WME-fS-BR0"/>
+                            <constraint firstItem="OXl-wA-zZr" firstAttribute="top" secondItem="FJl-Nd-aXF" secondAttribute="bottom" constant="15" id="YPV-A8-bCX"/>
+                            <constraint firstItem="29Y-4N-v0b" firstAttribute="leading" secondItem="OXl-wA-zZr" secondAttribute="leading" id="Yc2-AM-J8j"/>
+                            <constraint firstItem="65K-0q-xLD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="247/406" id="eYy-OU-BVx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZEy-Cj-Q8e" secondAttribute="trailing" constant="15" id="g2z-u2-HKc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OXl-wA-zZr" secondAttribute="trailing" constant="15" id="hRO-LY-NuS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SjO-5e-SI6" secondAttribute="trailing" id="hUA-5r-n3x"/>
+                            <constraint firstItem="FJl-Nd-aXF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="jTl-l9-FWh"/>
+                            <constraint firstItem="65K-0q-xLD" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qE1-vn-s40"/>
+                            <constraint firstItem="jbT-i5-cvQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rms-Fn-0gG"/>
+                            <constraint firstItem="OXl-wA-zZr" firstAttribute="leading" secondItem="FJl-Nd-aXF" secondAttribute="leading" id="tT7-DU-gHl"/>
+                            <constraint firstItem="OXl-wA-zZr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="wia-FV-7qc"/>
+                            <constraint firstItem="jbT-i5-cvQ" firstAttribute="leading" secondItem="ZEy-Cj-Q8e" secondAttribute="leading" id="xZr-7B-2RV"/>
                             <constraint firstItem="SjO-5e-SI6" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xdQ-As-0TI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="0.1 Launcher" width="375" height="812"/>
+        <image name="BackGround" width="375" height="812"/>
+        <image name="Logo" width="102" height="107"/>
     </resources>
 </document>

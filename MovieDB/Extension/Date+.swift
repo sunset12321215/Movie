@@ -5,12 +5,10 @@
 import Foundation
 
 extension Date {
-    static func fromString(date: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        guard let date = dateFormatter.date(from: date) else {
-            return Date()
-        }
+    static func fromString(dateInput: String) -> Date  {
+        let dateFormatterInput = DateFormatter()
+        dateFormatterInput.dateFormat = "yyyy-MM-dd"
+        guard let date = dateFormatterInput.date(from: dateInput) else { return Date() }
         return date
     }
     

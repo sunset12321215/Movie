@@ -10,6 +10,7 @@ import ObjectMapper
 
 class MoviesResponse: Mappable {
     var movies = [Movie]()
+    var totalPages = 0
     
     required init(map: Map) {
         mapping(map: map)
@@ -17,5 +18,18 @@ class MoviesResponse: Mappable {
     
     func mapping(map: Map) {
         movies <- map["results"]
+        totalPages <- map["total_pages"]
+    }
+}
+
+class MoviesByCastResponse: Mappable {
+    var movies = [Movie]()
+    
+    required init(map: Map) {
+        mapping(map: map)
+    }
+    
+    func mapping(map: Map) {
+        movies <- map["cast"]
     }
 }

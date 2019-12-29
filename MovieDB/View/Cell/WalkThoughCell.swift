@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class WalkThoughCell: UICollectionViewCell, Reusable {
+final class WalkThoughCell: UICollectionViewCell, NibReusable {
 
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!

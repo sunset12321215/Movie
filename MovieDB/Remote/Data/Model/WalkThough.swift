@@ -11,4 +11,5 @@ import Foundation
 struct WalkThough {
     var imageString: String
     var title: String
+    var image: String
 }

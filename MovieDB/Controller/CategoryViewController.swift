@@ -11,12 +11,14 @@ import UIKit
 final class CategoryViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var navigationView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var searchButton: UIButton!
     
     private struct Constant {
         static let categoryCellHeight: CGFloat = 200 * Screen.ratioHeight
         static let cellScaleFirst: CGFloat = 0.8
         static let cellScaleSecond: CGFloat = 0.9
-        static let cellScaleMax: CGFloat = 1
         static let durationTime = 0.1
     }
     private let movieRepository = MovieRepositoryImpl(api: APIService.share)
@@ -25,29 +27,61 @@ final class CategoryViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    private var movies = [Movie]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private func setupViews() {
         setupTabbarItem()
         setupTableView()
         fetchData()
+        setupNavigationView()
+    }
+    
+    //  MARK: - Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+        hideLayout()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        animationShowLayout()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        hideLayout()
+    }
+    
+    private func setupNavigationView() {
+        navigationView.backgroundColor = .firstGradientColor
     }
     
     private func setupTableView() {
         tableView.do {
             $0.dataSource = self
             $0.delegate = self
-            $0.register(UINib(nibName: "CategoryCell", bundle: nil),
-                        forCellReuseIdentifier: "CategoryCell")
+            $0.register(cellType: CategoryCell.self)
         }
     }
     
     private func setupTabbarItem() {
-        self.title = "CATEGORY"
-        self.tabBarItem.image = UIImage(named: "Categories")
-        self.tabBarItem.selectedImage = UIImage(named: "CategoriesSelected")?.withRenderingMode(.alwaysOriginal)
+        tabBarItem.selectedImage = UIImage(named: "CategoriesSelectedImage")?.withRenderingMode(.alwaysOriginal)
     }
     
+    private func hideLayout() {
+        let titleLabelWidth = titleLabel.frame.width
+        titleLabel.transform = CGAffineTransform(translationX: -titleLabelWidth, y: 0)
+        let searchButtonWidth = searchButton.frame.width
+        searchButton.transform = CGAffineTransform(translationX: searchButtonWidth, y: 0)
+    }
+    
+    private func animationShowLayout() {
+        UIView.animate(withDuration: 1, delay: 0.2, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: [], animations: {
+            self.titleLabel.transform = .identity
+            self.searchButton.transform = .identity
+        }, completion: nil)
+    }
+
+    //  MARK: - Setup Data
     private func fetchData() {
         movieRepository.getGenreList { [weak self] result in
             guard let self = self else { return }
@@ -60,9 +94,15 @@ final class CategoryViewController: UIViewController {
             }
         }
     }
+    
+    //  MARK: - Action
+    @IBAction func searchAction(_ sender: Any) {
+        let searchViewController = SearchViewController.instantiate()
+        present(searchViewController, animated: true, completion: nil)
+    }
 }
 
-extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
+extension CategoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         return genres.count
@@ -75,32 +115,53 @@ extension CategoryViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         return cell
     }
-    
+}
+
+extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         return Constant.categoryCellHeight
     }
-    
-    func tableView(_ tableView: UITableView,
-                   didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? CategoryCell else { return }
 
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? CategoryCell else { return }
         UIView.animate(withDuration: Constant.durationTime, animations: {
             cell.transform = .init(scaleX: Constant.cellScaleFirst,
                                    y: Constant.cellScaleFirst)
         }) { (_) in
-            UIView.animate(withDuration: Constant.durationTime, animations: {
-                cell.transform = .init(scaleX: Constant.cellScaleMax,
-                                       y: Constant.cellScaleMax)
-            }) { (_) in
-                UIView.animate(withDuration: Constant.durationTime, animations: {
-                    cell.transform = .init(scaleX: Constant.cellScaleSecond,
-                                           y: Constant.cellScaleSecond)
-                }, completion: { (_) in
-                    cell.transform = .init(scaleX: Constant.cellScaleMax,
-                                           y: Constant.cellScaleMax)
-                })
-            }
+            cell.transform = .identity
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? CategoryCell else { return }
+        UIView.animate(withDuration: Constant.durationTime, animations: {
+            cell.transform = .init(scaleX: Constant.cellScaleSecond,
+                                   y: Constant.cellScaleSecond)
+        }) { (_) in
+            UIView.animate(withDuration: Constant.durationTime, animations: {
+                cell.transform = .identity
+                self.playTappedSound()
+            }, completion: { [weak self] (_) in
+                guard let self = self else { return }
+                let genre = self.genres[indexPath.row]
+                let movieByGenreVC = MovieByGenreViewController.instantiate()
+                movieByGenreVC.genre = genre
+                self.present(movieByGenreVC, animated: true, completion: nil)
+            })
+        }
+    }
+}
+
+extension CategoryViewController {
+    
+    func playTappedSound() {
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Media.tappedSoundPath()))
+        }
+        catch {
+            print(error)
+        }
+        audioPlayer.play()
     }
 }

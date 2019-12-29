@@ -23,6 +23,7 @@ enum MovieType: CaseIterable {
             return "Top Rated"
         }
     }
+    
     var url: String {
         switch self {
         case .now:

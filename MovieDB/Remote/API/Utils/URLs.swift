@@ -15,4 +15,6 @@ struct URLs {
     static let APIGenreListURL = APIBaseUrl + "/genre/movie/list"
     static let APIDiscoverMovieURL = APIBaseUrl + "/discover/movie"
     static let YoutubeThumbnailImage = "https://img.youtube.com/vi/%@/hqdefault.jpg"
+    static let APIGetMovieByID = APIBaseUrl + "/genre/"
+    static let APIPersonDetailURL = APIBaseUrl + "/person/"
 }

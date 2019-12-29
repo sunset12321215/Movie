@@ -14,25 +14,27 @@ final class WalkThroughViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageControl: CustomImagePageControl!
     @IBOutlet private weak var getStartedButton: UIButton!
+    @IBOutlet private weak var nextButton: UIButton!
     
     //  MARK: - Variable & Constants
     private let arrayWalkThough = [
-        WalkThough(imageString: "WalkthroughA", title: "Get the first\nMovie & TV\ninfomation"),
-        WalkThough(imageString: "WalkthroughB", title: "Know the movie\nis not worth\nWatching"),
-        WalkThough(imageString: "WalkthroughC", title: "Real-time\nupdates movie\nTrailer"),
+        WalkThough(imageString: "WalkthroughA", title: "Get the first\nMovie & TV\ninfomation", image: "NextButtonImage"),
+        WalkThough(imageString: "WalkthroughB", title: "Know the movie\nis not worth\nWatching", image: "NextButtonImage"),
+        WalkThough(imageString: "WalkthroughC", title: "Real-time\nupdates movie\nTrailer", image: "GetStartedImageButton"),
         ]
     private struct Constant {
-        static let identifier = "WalkThoughCell"
         static let widthScreen = UIScreen.main.bounds.width
         static let heightScreen = UIScreen.main.bounds.height
         static let minimumLineSpacing: CGFloat = 0
     }
+    private let playerController = PlayerViewController()
     
     //  MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        setupGetStartedButton()
+        setupViews()
+        playerController.customDelegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,7 +42,14 @@ final class WalkThroughViewController: UIViewController {
         setupPageControl()
     }
     
-    //  MARK: - Setup View
+    //  MARK: - Setup Views
+    private func setupViews() {
+        let buttonImage = UIImage(named: "NextButtonImage")?.withRenderingMode(.alwaysOriginal)
+        nextButton.setImage(buttonImage, for: .normal)
+        navigationController?.isNavigationBarHidden = true
+        
+    }
+    
     private func setupPageControl() {
         pageControl.updateDots()
         pageControl.numberOfPages = arrayWalkThough.count
@@ -50,29 +59,26 @@ final class WalkThroughViewController: UIViewController {
         collectionView.do {
             $0.delegate = self
             $0.dataSource = self
-            $0.register(UINib(nibName: "WalkThoughCell", bundle: nil),
-                        forCellWithReuseIdentifier: "WalkThoughCell")
+            $0.register(cellType: WalkThoughCell.self)
         }
-    }
-    
-    private func setupGetStartedButton() {
-        getStartedButton.isHidden = true
     }
     
     //  MARK: - Action
     @IBAction func NextAction(_ sender: UIButton) {
         pageControl.currentPage = pageControl.currentPage + 1
         pageControl.updateDots()
-        collectionView.scrollToItem(at: IndexPath(item: pageControl.currentPage, section: 0),
+        collectionView.scrollToItem(at: IndexPath(item: pageControl.currentPage,
+                                                  section: 0),
                                     at: .right,
                                     animated: true)
         if pageControl.currentPage == 2 {
             getStartedButton.isHidden = false
+            nextButton.isHidden = true
         }
     }
     
     @IBAction func getStartedAction(_ sender: Any) {
-        //  MARK: - ToDo
+        present(playerController, animated: true, completion: nil)
     }
 }
 
@@ -107,13 +113,25 @@ extension WalkThroughViewController: UICollectionViewDelegateFlowLayout {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView,
                                    withVelocity velocity: CGPoint,
                                    targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let position = targetContentOffset.pointee.x / Constant.widthScreen
+        let position = Int(targetContentOffset.pointee.x / Constant.widthScreen)
         pageControl.currentPage = Int(position)
         pageControl.updateDots()
-        if position == 2 {
-            getStartedButton.isHidden = false
-        } else {
-            getStartedButton.isHidden = true
-        }
+        let imageString = arrayWalkThough[position].image
+        let buttonImage = UIImage(named: imageString)?.withRenderingMode(.alwaysOriginal)
+        nextButton.setImage(buttonImage, for: .normal)
+        nextButton.isHidden = position != 2 ? false : true
+        getStartedButton.isHidden = position != 2 ? true : false
+    }
+}
+
+extension WalkThroughViewController: StoryboardSceneBased {
+    static var sceneStoryboard = Storyboards.walkThrough
+}
+
+extension WalkThroughViewController: PlayerViewControllerDelegate {
+    func gotoHomeController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let homeController = storyboard.instantiateViewController(withIdentifier: "HomeController") as? HomeController else { return }
+        present(homeController, animated: true, completion: nil)
     }
 }

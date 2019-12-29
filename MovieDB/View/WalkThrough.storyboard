@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Walk Through View Controller-->
+        <scene sceneID="VIR-Pd-pDG">
+            <objects>
+                <viewController storyboardIdentifier="WalkThroughViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fb0-XY-5dF" customClass="WalkThroughViewController" customModule="MovieDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A4b-tt-JZ9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ebF-Yh-Ui6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qr1-8T-HT7">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="r3S-qJ-mEt" customClass="CustomImagePageControl" customModule="MovieDB" customModuleProvider="target">
+                                <rect key="frame" x="142.5" y="534" width="90" height="13"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gP3-K7-3tb">
+                                <rect key="frame" x="91.5" y="575" width="192" height="44.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="NextAction:" destination="Fb0-XY-5dF" eventType="touchUpInside" id="6iB-S7-9ZT"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufv-BU-30R">
+                                <rect key="frame" x="91.5" y="575" width="192" height="44.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="-11" maxX="0.0" maxY="-20"/>
+                                <state key="normal" image="Next_icon"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="getStartedAction:" destination="Fb0-XY-5dF" eventType="touchUpInside" id="TDJ-Sk-sPV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ufv-BU-30R" firstAttribute="width" secondItem="gP3-K7-3tb" secondAttribute="width" id="0ir-BZ-Lpu"/>
+                            <constraint firstItem="gP3-K7-3tb" firstAttribute="centerY" secondItem="Ufv-BU-30R" secondAttribute="centerY" id="3UK-dd-k2Z"/>
+                            <constraint firstItem="r3S-qJ-mEt" firstAttribute="width" secondItem="ebF-Yh-Ui6" secondAttribute="width" multiplier="90/375" id="ABw-v6-1yd"/>
+                            <constraint firstItem="gP3-K7-3tb" firstAttribute="height" secondItem="r3S-qJ-mEt" secondAttribute="height" multiplier="54/16" id="AQs-fh-Wyn"/>
+                            <constraint firstAttribute="bottom" secondItem="ebF-Yh-Ui6" secondAttribute="bottom" id="BPi-27-qKY"/>
+                            <constraint firstItem="r3S-qJ-mEt" firstAttribute="height" secondItem="ebF-Yh-Ui6" secondAttribute="height" multiplier="16/812" id="PKQ-hL-Ru8"/>
+                            <constraint firstItem="ebF-Yh-Ui6" firstAttribute="top" secondItem="A4b-tt-JZ9" secondAttribute="top" id="Shn-n4-KvM"/>
+                            <constraint firstItem="gP3-K7-3tb" firstAttribute="centerX" secondItem="Ufv-BU-30R" secondAttribute="centerX" id="VFs-vf-Wni"/>
+                            <constraint firstItem="zpJ-rv-sSo" firstAttribute="trailing" secondItem="ebF-Yh-Ui6" secondAttribute="trailing" id="VRb-7F-nfT"/>
+                            <constraint firstItem="Ufv-BU-30R" firstAttribute="height" secondItem="gP3-K7-3tb" secondAttribute="height" id="YCh-ls-ZqJ"/>
+                            <constraint firstItem="gP3-K7-3tb" firstAttribute="width" secondItem="ebF-Yh-Ui6" secondAttribute="width" multiplier="192/375" id="YtZ-Mu-W3I"/>
+                            <constraint firstItem="ebF-Yh-Ui6" firstAttribute="leading" secondItem="zpJ-rv-sSo" secondAttribute="leading" id="bzk-ic-AXr"/>
+                            <constraint firstItem="gP3-K7-3tb" firstAttribute="centerX" secondItem="A4b-tt-JZ9" secondAttribute="centerX" id="naX-Pw-UU8"/>
+                            <constraint firstItem="r3S-qJ-mEt" firstAttribute="centerX" secondItem="A4b-tt-JZ9" secondAttribute="centerX" id="owf-A0-Psy"/>
+                            <constraint firstItem="gP3-K7-3tb" firstAttribute="top" secondItem="A4b-tt-JZ9" secondAttribute="centerY" multiplier="700/406" id="yQR-ea-y51"/>
+                            <constraint firstItem="r3S-qJ-mEt" firstAttribute="top" secondItem="A4b-tt-JZ9" secondAttribute="centerY" multiplier="650/406" id="ykW-Gq-xDd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zpJ-rv-sSo"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tdd-vm-qKw"/>
+                    <connections>
+                        <outlet property="collectionView" destination="ebF-Yh-Ui6" id="y6K-Mc-P2g"/>
+                        <outlet property="getStartedButton" destination="Ufv-BU-30R" id="pHW-MG-Wkz"/>
+                        <outlet property="nextButton" destination="gP3-K7-3tb" id="Lbm-O2-GAt"/>
+                        <outlet property="pageControl" destination="r3S-qJ-mEt" id="m0w-iL-gDP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l1E-zL-lpE" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="137"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Next_icon" width="195" height="91"/>
+    </resources>
+</document>
