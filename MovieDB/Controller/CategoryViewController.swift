@@ -10,11 +10,13 @@ import UIKit
 
 final class CategoryViewController: UIViewController {
     
+    // MARK: - Outlet
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var navigationView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var searchButton: UIButton!
     
+    // MARK: - Properties
     private struct Constant {
         static let categoryCellHeight: CGFloat = 200 * Screen.ratioHeight
         static let cellScaleFirst: CGFloat = 0.8
@@ -28,6 +30,7 @@ final class CategoryViewController: UIViewController {
         }
     }
     private var movies = [Movie]()
+    var audioPlayer = AVAudioPlayer()
     
     private func setupViews() {
         setupTabbarItem()
@@ -98,7 +101,7 @@ final class CategoryViewController: UIViewController {
     //  MARK: - Action
     @IBAction func searchAction(_ sender: Any) {
         let searchViewController = SearchViewController.instantiate()
-        present(searchViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(searchViewController, animated: true)
     }
 }
 
@@ -112,7 +115,6 @@ extension CategoryViewController: UITableViewDataSource {
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CategoryCell = tableView.dequeueReusableCell(for: indexPath)
         cell.setContentForCell(data: genres[indexPath.row])
-        cell.selectionStyle = .none
         return cell
     }
 }
@@ -147,7 +149,7 @@ extension CategoryViewController: UITableViewDelegate {
                 let genre = self.genres[indexPath.row]
                 let movieByGenreVC = MovieByGenreViewController.instantiate()
                 movieByGenreVC.genre = genre
-                self.present(movieByGenreVC, animated: true, completion: nil)
+                self.navigationController?.pushViewController(movieByGenreVC, animated: true)
             })
         }
     }
@@ -157,7 +159,8 @@ extension CategoryViewController {
     
     func playTappedSound() {
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Media.tappedSoundPath()))
+            let url = URL(fileURLWithPath: Media.tappedSoundPath())
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
         }
         catch {
             print(error)

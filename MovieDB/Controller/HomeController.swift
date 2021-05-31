@@ -10,17 +10,20 @@ import UIKit
 
 final class HomeController: UITabBarController {
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTabbarItem()
-        configViews()
-    }
-
-    private func configViews() {
-        let walkThoughtScreen = WalkThroughViewController.instantiate()
-        present(walkThoughtScreen, animated: false, completion: nil)
+        setupView()
     }
     
-    private func setupTabbarItem() { UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.secondGradientColor], for: .selected)
+    // MARK: - Views
+    private func setupView() {
+        navigationController?.navigationBar.isHidden = true
+        UITabBarItem.appearance()
+            .setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.secondGradientColor], for: .selected)
     }
+}
+
+extension HomeController: StoryboardSceneBased {
+    static var sceneStoryboard = Storyboards.main
 }

@@ -158,7 +158,7 @@ final class MovieViewController: UIViewController {
     //  MARK: - Action
     @IBAction func searchAction(_ sender: Any) {
         let searchViewController = SearchViewController.instantiate()
-        present(searchViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(searchViewController, animated: true)
     }
 }
 
@@ -240,7 +240,7 @@ extension MovieViewController: UICollectionViewDataSource, UICollectionViewDeleg
         if collectionView == nowMovieCollectionView {
             detailViewController.isShowRibbonImage = true
         }
-        present(detailViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView,

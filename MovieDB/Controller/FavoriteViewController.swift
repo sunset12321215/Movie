@@ -152,7 +152,7 @@ final class FavoriteViewController: UIViewController {
     
     @IBAction func searchAction(_ sender: Any) {
         let searchViewController = SearchViewController.instantiate()
-        present(searchViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(searchViewController, animated: true)
     }
 }
 

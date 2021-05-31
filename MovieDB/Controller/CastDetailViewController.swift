@@ -185,7 +185,8 @@ extension CastDetailViewController {
     
     func playTappedSound() {
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Media.tappedSoundPath()))
+            let url = URL(fileURLWithPath: Media.tappedSoundPath())
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
         }
         catch {
             print(error)

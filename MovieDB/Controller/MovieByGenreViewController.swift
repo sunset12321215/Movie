@@ -100,12 +100,13 @@ final class MovieByGenreViewController: UIViewController {
     
     //  MARK: - Action
     @IBAction func backToPreveous(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func searchAction(_ sender: Any) {
         let searchViewController = SearchViewController.instantiate()
-        present(searchViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(searchViewController, animated: true)
     }
 }
 
@@ -140,7 +141,7 @@ extension MovieByGenreViewController: UITableViewDelegate {
         let getmovie = movies[indexPath.row]
         let movieDetailViewController = MovieDetailViewController.instantiate()
         movieDetailViewController.movie = getmovie
-        present(movieDetailViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(movieDetailViewController, animated: true)
     }
 }
 
