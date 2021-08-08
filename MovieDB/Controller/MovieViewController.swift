@@ -81,7 +81,7 @@ final class MovieViewController: UIViewController {
     }
     
     private func setupNavigationView() {
-        navigationView.backgroundColor = .firstGradientColor
+        navigationView.setGradientColor(orientation: .leftToRight)
     }
     
     private func hideLayout() {
