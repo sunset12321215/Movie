@@ -130,7 +130,7 @@ final class CastDetailViewController: UIViewController {
     
     //  MARK: - Action
     @IBAction func backAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }
 

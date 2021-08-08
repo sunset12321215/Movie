@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,14 +35,14 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8s-6F-0Qn">
-                        <rect key="frame" x="9" y="238" width="184" height="27"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8s-6F-0Qn">
+                        <rect key="frame" x="9" y="243.5" width="184" height="21.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year Release" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIQ-1V-HsZ">
-                        <rect key="frame" x="9" y="211" width="184" height="27"/>
+                        <rect key="frame" x="9" y="225.5" width="184" height="18"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -83,6 +81,7 @@
                     </label>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="HC0-1r-gUx"/>
             <constraints>
                 <constraint firstItem="cdU-pu-Gkb" firstAttribute="top" secondItem="Jxj-AK-Hw5" secondAttribute="top" constant="5" id="1Op-az-lub"/>
                 <constraint firstAttribute="trailing" secondItem="9bz-HY-bya" secondAttribute="trailing" constant="10" id="507-dQ-H8m"/>
@@ -98,9 +97,7 @@
                 <constraint firstItem="b8s-6F-0Qn" firstAttribute="bottom" secondItem="Wq9-Rg-aHD" secondAttribute="bottom" id="SBb-IN-2Ah"/>
                 <constraint firstAttribute="bottom" secondItem="sK7-Bo-swq" secondAttribute="bottom" constant="-20" id="W22-gw-duh"/>
                 <constraint firstItem="Wq9-Rg-aHD" firstAttribute="leading" secondItem="Jxj-AK-Hw5" secondAttribute="leading" id="WSm-AN-zbZ"/>
-                <constraint firstItem="b8s-6F-0Qn" firstAttribute="height" secondItem="Jxj-AK-Hw5" secondAttribute="height" multiplier="20/210" id="a4I-rX-7DX"/>
                 <constraint firstItem="Wq9-Rg-aHD" firstAttribute="height" secondItem="Jxj-AK-Hw5" secondAttribute="height" multiplier="210/225" id="fho-WX-CkO"/>
-                <constraint firstItem="YIQ-1V-HsZ" firstAttribute="height" secondItem="b8s-6F-0Qn" secondAttribute="height" id="fpm-e3-fPV"/>
                 <constraint firstItem="Wq9-Rg-aHD" firstAttribute="top" secondItem="Jxj-AK-Hw5" secondAttribute="top" id="i0p-t5-Mze"/>
                 <constraint firstAttribute="trailing" secondItem="Wq9-Rg-aHD" secondAttribute="trailing" id="iLo-pI-NUI"/>
                 <constraint firstItem="YIQ-1V-HsZ" firstAttribute="width" secondItem="b8s-6F-0Qn" secondAttribute="width" id="jT0-13-4PQ"/>
@@ -110,7 +107,6 @@
                 <constraint firstItem="b8s-6F-0Qn" firstAttribute="top" secondItem="YIQ-1V-HsZ" secondAttribute="bottom" id="tUb-cF-4dX"/>
                 <constraint firstItem="Otq-Pn-cNz" firstAttribute="width" secondItem="Otq-Pn-cNz" secondAttribute="height" multiplier="1/1" id="yvL-7g-WyJ"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="HC0-1r-gUx"/>
             <size key="customSize" width="103" height="112"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
