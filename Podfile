@@ -25,7 +25,6 @@ pod 'SCLAlertView'
 pod 'AlertTransition', "~> 2.1.0"
 pod 'SnapKit'
 pod 'VGPlayer'
-#pod 'YoutubeDirectLinkExtractor'
 pod 'YoutubeKit'
 pod 'Toast-Swift', '~> 5.0.1'
 

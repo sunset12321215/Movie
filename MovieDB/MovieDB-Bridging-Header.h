@@ -12,13 +12,10 @@
 @import SDWebImage;
 @import SkeletonView;
 @import MIBadgeButton;
-//@import ReadMoreTextView;
 @import Cosmos;
 @import ChameleonFramework;
 @import BWWalkthrough;
 @import RealmSwift;
-//@import youtube_ios_player_helper;
-//@import YouTubePlayer_Swift;
 @import SCLAlertView;
 @import AlertTransition;
 @import SnapKit;
