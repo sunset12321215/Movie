@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '10.0'
 
-target 'MovieDB' do
+target 'Movie Trailer' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
@@ -17,15 +17,14 @@ pod 'SkeletonView'
 pod 'ReadMoreTextView'
 pod 'MIBadgeButton'
 pod 'Cosmos'
-pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'wip/swift4'
+pod 'ChameleonFramework/Swift', :git => 'https://github.com/VuCuongHD96/Chameleon'
 pod 'BWWalkthrough'
 pod 'youtube-ios-player-helper'
-pod 'YouTubePlayer-Swift', '~> 1.0'
+pod 'YouTubePlayer-Swift'
 pod 'SCLAlertView'
 pod 'AlertTransition', "~> 2.1.0"
 pod 'SnapKit'
-pod 'VGPlayer', '~> 0.2.0'
-pod 'YoutubeDirectLinkExtractor'
+pod 'VGPlayer'
 pod 'YoutubeKit'
 pod 'Toast-Swift', '~> 5.0.1'
 

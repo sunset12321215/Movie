@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CATEGORIES-->
+        <scene sceneID="uwp-KT-fXU">
+            <objects>
+                <viewController storyboardIdentifier="categoryVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="n6K-DL-Vsx" customClass="CategoryViewController" customModule="Movie_Trailer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="b02-GS-3Xp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4b6-4S-GG8">
+                                <rect key="frame" x="10" y="66.5" width="355" height="600.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nn-bT-6nU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="66.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejv-Oh-JKS">
+                                        <rect key="frame" x="10" y="22" width="310.5" height="44.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byo-pY-r9S">
+                                        <rect key="frame" x="325.5" y="22" width="44.5" height="44.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="byo-pY-r9S" secondAttribute="height" multiplier="1/1" id="wiF-w5-HDP"/>
+                                        </constraints>
+                                        <state key="normal" image="iconsearchsecond"/>
+                                        <connections>
+                                            <action selector="searchAction:" destination="n6K-DL-Vsx" eventType="touchUpInside" id="6V8-lc-fXJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="byo-pY-r9S" firstAttribute="leading" secondItem="Ejv-Oh-JKS" secondAttribute="trailing" constant="5" id="7CY-ou-Or7"/>
+                                    <constraint firstItem="byo-pY-r9S" firstAttribute="bottom" secondItem="Ejv-Oh-JKS" secondAttribute="bottom" id="Vi7-qv-Mi5"/>
+                                    <constraint firstItem="byo-pY-r9S" firstAttribute="height" secondItem="Ejv-Oh-JKS" secondAttribute="height" id="XDN-Xq-708"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ejv-Oh-JKS" secondAttribute="bottom" id="XNE-w1-noQ"/>
+                                    <constraint firstItem="Ejv-Oh-JKS" firstAttribute="leading" secondItem="5nn-bT-6nU" secondAttribute="leading" constant="10" id="bKF-Vv-hEz"/>
+                                    <constraint firstItem="Ejv-Oh-JKS" firstAttribute="height" secondItem="5nn-bT-6nU" secondAttribute="height" multiplier="2/3" id="eQP-vM-bmd"/>
+                                    <constraint firstAttribute="trailing" secondItem="byo-pY-r9S" secondAttribute="trailing" constant="5" id="mC7-0c-7ia"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4b6-4S-GG8" firstAttribute="top" secondItem="5nn-bT-6nU" secondAttribute="bottom" id="0tO-e9-5Wp"/>
+                            <constraint firstItem="5nn-bT-6nU" firstAttribute="top" secondItem="b02-GS-3Xp" secondAttribute="top" id="GJw-b0-glz"/>
+                            <constraint firstItem="5nn-bT-6nU" firstAttribute="height" secondItem="b02-GS-3Xp" secondAttribute="height" multiplier="1/10" id="OoF-Gl-Y8D"/>
+                            <constraint firstItem="4b6-4S-GG8" firstAttribute="width" secondItem="b02-GS-3Xp" secondAttribute="width" multiplier="355/375" id="RLo-8M-3B3"/>
+                            <constraint firstItem="5nn-bT-6nU" firstAttribute="leading" secondItem="faB-Ly-8mv" secondAttribute="leading" id="exQ-K4-W1m"/>
+                            <constraint firstItem="faB-Ly-8mv" firstAttribute="trailing" secondItem="5nn-bT-6nU" secondAttribute="trailing" id="fY4-wT-0bz"/>
+                            <constraint firstItem="4b6-4S-GG8" firstAttribute="centerX" secondItem="b02-GS-3Xp" secondAttribute="centerX" id="t3I-my-UF6"/>
+                            <constraint firstItem="faB-Ly-8mv" firstAttribute="bottom" secondItem="4b6-4S-GG8" secondAttribute="bottom" id="v1g-ce-tgs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="faB-Ly-8mv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="CATEGORIES" image="CategoriesImage" id="JGv-6k-Dzq"/>
+                    <connections>
+                        <outlet property="navigationView" destination="5nn-bT-6nU" id="VpN-mD-zjE"/>
+                        <outlet property="searchButton" destination="byo-pY-r9S" id="hWc-pw-jg6"/>
+                        <outlet property="tableView" destination="4b6-4S-GG8" id="XIS-Lh-EMy"/>
+                        <outlet property="titleLabel" destination="Ejv-Oh-JKS" id="juF-Fm-US0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0uf-gx-6jI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="961" y="967"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CategoriesImage" width="26" height="22"/>
+        <image name="iconsearchsecond" width="23" height="23"/>
+    </resources>
+</document>

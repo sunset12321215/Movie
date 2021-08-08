@@ -16,7 +16,7 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var infoLabel: UILabel!
     @IBOutlet private weak var genreLabel: UILabel!
-    @IBOutlet private weak var overView: ReadMoreTextView!
+    @IBOutlet private weak var overView: UITextView!
     @IBOutlet private weak var contentHeight: NSLayoutConstraint!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var scoreStar: CosmosView!
@@ -51,7 +51,7 @@ final class MovieDetailViewController: UIViewController {
         }
     }
     private var videos = [Video]()
-    private var dbManager: DBManager?
+    private var dbManager: DBManager!
     var movie = Movie()
     private var audioPlayer = AVAudioPlayer()
     var isShowRibbonImage = false
@@ -96,7 +96,7 @@ final class MovieDetailViewController: UIViewController {
             $0.register(cellType: CastCell.self)
         }
     }
-
+    
     private func fetchData() {
         movieRepository.getGenreList { [weak self] result in
             guard let self = self else { return }
@@ -185,7 +185,7 @@ final class MovieDetailViewController: UIViewController {
             self.genreLabel.transform = .init(translationX: -transformX, y: 0)
         }, completion: nil)
     }
-
+    
     private func setupTrailerAlertTableView() {
         let appearance = SCLAlertView.SCLAppearance(
             kTitleFont: UIFont(name: "HelveticaNeue", size: 20)!,
@@ -226,10 +226,10 @@ final class MovieDetailViewController: UIViewController {
         view.makeToast("Remove Your Favorite Movie")
         favoriteButton.setImage(#imageLiteral(resourceName: "FavoriteStar"), for: .normal)
     }
-
+    
     // MARK: - Action
     @IBAction func backToPrevious(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func playVideoTrainer(_ sender: Any) {
@@ -278,7 +278,7 @@ extension MovieDetailViewController: UICollectionViewDelegate {
             let castID = self.casts[indexPath.row].id
             let castDetailController = CastDetailViewController.instantiate()
             castDetailController.castID = castID
-            self.present(castDetailController, animated: true, completion: nil)
+            self.navigationController?.pushViewController(castDetailController, animated: true)
         }
     }
 }
@@ -300,7 +300,8 @@ extension MovieDetailViewController {
     
     func playTappedSound() {
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: Media.tappedSoundPath()))
+            let url = URL(fileURLWithPath: Media.tappedSoundPath())
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
         }
         catch {
             print(error)

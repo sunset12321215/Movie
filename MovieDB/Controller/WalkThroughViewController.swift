@@ -130,8 +130,7 @@ extension WalkThroughViewController: StoryboardSceneBased {
 
 extension WalkThroughViewController: PlayerViewControllerDelegate {
     func gotoHomeController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let homeController = storyboard.instantiateViewController(withIdentifier: "HomeController") as? HomeController else { return }
-        present(homeController, animated: true, completion: nil)
+        let homeController = HomeController.instantiate()
+        navigationController?.pushViewController(homeController, animated: true)
     }
 }

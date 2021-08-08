@@ -10,9 +10,21 @@ import UIKit
 
 final class CategoryCell: UITableViewCell, NibReusable {
 
+    // MARK: - Outlet
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var avatar: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
+    
+    // MARK: - Views
+    private func setupView() {
+        selectionStyle = .none
+    }
+    
+    // MARK: - Data
     func setContentForCell(data: Genre) {
         nameLabel.text = data.name
         avatar.image = UIImage(named: data.name)

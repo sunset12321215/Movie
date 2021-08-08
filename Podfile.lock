@@ -34,7 +34,6 @@ PODS:
   - VGPlayer (0.2.0):
     - SnapKit (~> 4.0.0)
   - youtube-ios-player-helper (0.1.6)
-  - YoutubeDirectLinkExtractor (0.2.0)
   - YoutubeKit (0.4.0)
   - YouTubePlayer-Swift (1.0)
 
@@ -42,7 +41,7 @@ DEPENDENCIES:
   - Alamofire
   - AlertTransition (~> 2.1.0)
   - BWWalkthrough
-  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
+  - ChameleonFramework/Swift (from `https://github.com/VuCuongHD96/Chameleon`)
   - Cosmos
   - MIBadgeButton
   - ObjectMapper
@@ -55,11 +54,10 @@ DEPENDENCIES:
   - SnapKit
   - Then
   - Toast-Swift (~> 5.0.1)
-  - VGPlayer (~> 0.2.0)
+  - VGPlayer
   - youtube-ios-player-helper
-  - YoutubeDirectLinkExtractor
   - YoutubeKit
-  - YouTubePlayer-Swift (~> 1.0)
+  - YouTubePlayer-Swift
 
 SPEC REPOS:
   trunk:
@@ -81,19 +79,17 @@ SPEC REPOS:
     - Toast-Swift
     - VGPlayer
     - youtube-ios-player-helper
-    - YoutubeDirectLinkExtractor
     - YoutubeKit
     - YouTubePlayer-Swift
 
 EXTERNAL SOURCES:
   ChameleonFramework:
-    :branch: wip/swift4
-    :git: https://github.com/ViccAlexander/Chameleon.git
+    :git: https://github.com/VuCuongHD96/Chameleon
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
-    :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
-    :git: https://github.com/ViccAlexander/Chameleon.git
+    :commit: 1112e040229778be69258b60a95edd27c046356f
+    :git: https://github.com/VuCuongHD96/Chameleon
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -115,10 +111,9 @@ SPEC CHECKSUMS:
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   VGPlayer: a1787135559aa3b9201ebdc733ee283315492289
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
-  YoutubeDirectLinkExtractor: 068b6a09d64551cb7cec966179d7f5f5824cd2db
   YoutubeKit: 10c74151790b570001b19403d2c60b2fb540a1fe
   YouTubePlayer-Swift: ae82f4bcb504162a872b852596a9dc1fa3828c34
 
-PODFILE CHECKSUM: 19972e340852227b81e2da12f3e14ff596026ec4
+PODFILE CHECKSUM: 556b86ec884b893cd9ee9577a3a2e8503c2af24b
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1

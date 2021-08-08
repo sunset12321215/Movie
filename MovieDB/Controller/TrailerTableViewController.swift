@@ -20,6 +20,7 @@ final class TrailerTableViewController: UIViewController {
         static let rowHeight = 200 * Screen.ratioHeight
     }
     private let playerViewController = UIViewController()
+    var audioPlayer = AVAudioPlayer()
     
     //  MARK: - Life Cycle
     override func viewDidLoad() {
